@@ -1,0 +1,10 @@
+C:\Users\Abdelrahman Hamdy\source\repos\OP\Debug\OP.vcxproj.AssemblyReference.cache
+C:\Users\Abdelrahman Hamdy\source\repos\OP\Debug\OP.MyForm.resources
+C:\Users\Abdelrahman Hamdy\source\repos\OP\Debug\OP.MyForm1.resources
+C:\Users\Abdelrahman Hamdy\source\repos\OP\Debug\OP.vcxproj.GenerateResource.cache
+C:\Users\Abdelrahman Hamdy\source\repos\OP\Debug\OP.exe
+C:\Users\Abdelrahman Hamdy\Desktop\project\Ds\project\OP\Debug\OP.vcxproj.AssemblyReference.cache
+C:\Users\Abdelrahman Hamdy\Desktop\project\Ds\project\OP\Debug\OP.MyForm.resources
+C:\Users\Abdelrahman Hamdy\Desktop\project\Ds\project\OP\Debug\OP.MyForm1.resources
+C:\Users\Abdelrahman Hamdy\Desktop\project\Ds\project\OP\Debug\OP.vcxproj.GenerateResource.cache
+C:\Users\Abdelrahman Hamdy\Desktop\project\Ds\project\OP\Debug\OP.exe
