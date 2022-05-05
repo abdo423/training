@@ -26,3 +26,9 @@ C:\Users\DELL\Desktop\حمدي\training\OP\x64\Release\OP.MyForm.resources
 C:\Users\DELL\Desktop\حمدي\training\OP\x64\Release\OP.MyForm1.resources
 C:\Users\DELL\Desktop\حمدي\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
 C:\Users\DELL\Desktop\حمدي\training\OP\x64\Release\OP.exe
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.vcxproj.AssemblyReference.cache
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.adminForm1h.resources
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.MyForm.resources
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.MyForm1.resources
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
+C:\Users\Abdelrahman Hamdy\Desktop\training\OP\x64\Release\OP.exe

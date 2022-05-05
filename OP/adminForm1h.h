@@ -566,6 +566,7 @@ namespace OP {
 
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) // view rows button
 	{
+		
 
 		// this working without DS
 
@@ -612,6 +613,12 @@ namespace OP {
 
 		try {
 			test obj;
+			int f = obj.countRowTable("select * from test_train");
+			if (f == 0)
+			{
+				MessageBox::Show("database is empty");
+				return;
+			}
 			ResultSet* result = obj.dbGet("select * from test_train");
 
 			vector<string> v1_Train_Name;
