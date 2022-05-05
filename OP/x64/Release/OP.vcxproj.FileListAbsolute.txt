@@ -8,3 +8,15 @@ C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm.resources
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm1.resources
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.exe
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.vcxprojAssemblyReference.cache
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.MyForm.resources
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.MyForm1.resources
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.exe
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.vcxproj.AssemblyReference.cache
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.MyForm.resources
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.MyForm1.resources
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.vcxproj.GenerateResource.cache
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.exe
+C:\Users\abdel\Downloads\Telegram Desktop\OP\OP\x64\Release\OP.adminForm1h.resources

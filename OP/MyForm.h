@@ -1,7 +1,9 @@
 ﻿#pragma once
+#include "adminForm1h.h"
 #include "MyForm1.h"
+
 #include <msclr/marshal_cppstd.h>
-#include "Email_login.h"
+
 
 namespace OP {
 
@@ -172,6 +174,7 @@ namespace OP {
 			this->textBox_username->Name = L"textBox_username";
 			this->textBox_username->Size = System::Drawing::Size(343, 29);
 			this->textBox_username->TabIndex = 9;
+			this->textBox_username->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox_username_TextChanged);
 			// 
 			// label3
 			// 
@@ -238,6 +241,7 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -272,24 +276,35 @@ namespace OP {
 
 		else if (User == "admin" && Pass == "admin")
 		{
-			MessageBox::Show("how are you and your goats?");
-			//Admin Form
+			this->Hide();
+			adminForm1h^ z = gcnew adminForm1h();
+			z->ShowDialog();
+			textBox_username->Clear();
+			textBox_password->Clear();
+			this->Show();
+			//MyForm::Hide();
 		}
 
 		else
 		{
 			bool p;
-			Email_login x;
+			test x;
 			p = x.login(g, q);
 			if (p)
 			{
-				MessageBox::Show("yo-yo-yo");
+				MessageBox::Show("mission success , this should open passenger form");
 			}
 			else
 			{
-				MessageBox::Show("esmo leh capol 3adweya");
+				MessageBox::Show("mission failed");
 			}
 		}
 	}
+private: System::Void textBox_username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	this->ActiveControl = textBox_username;
+
+}
 };
 }

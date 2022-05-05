@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyForm1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cc.cpp">
+    <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Email_login.cpp">
+    <ClCompile Include="adminForm1h.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +35,10 @@
     <ClInclude Include="MyForm1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cc.h">
+    <ClInclude Include="test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Email_login.h">
+    <ClInclude Include="adminForm1h.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

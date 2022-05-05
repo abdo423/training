@@ -1,14 +1,17 @@
+
 #pragma once
-#include "cc.h"
-namespace OP {
+#include "test.h"
+#include <msclr/marshal_cppstd.h>
+	
+	namespace OP {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-
+		using namespace System;
+		using namespace System::ComponentModel;
+		using namespace System::Collections;
+		using namespace System::Windows::Forms;
+		using namespace System::Data;
+		using namespace System::Drawing;
+		using namespace System::Data::SqlClient;
 	/// <summary>
 	/// Summary for MyForm1
 	/// </summary>
@@ -71,7 +74,6 @@ namespace OP {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm1::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->Sign = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
@@ -117,6 +119,7 @@ namespace OP {
 			this->Sign->TabIndex = 21;
 			this->Sign->Text = L"Sign up";
 			this->Sign->UseVisualStyleBackColor = false;
+			this->Sign->Click += gcnew System::EventHandler(this, &MyForm1::Sign_Click);
 			// 
 			// panel2
 			// 
@@ -168,7 +171,7 @@ namespace OP {
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(43, 284);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(95, 24);
+			this->label3->Size = System::Drawing::Size(90, 23);
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"Password";
 			// 
@@ -180,7 +183,7 @@ namespace OP {
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(43, 183);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(58, 24);
+			this->label2->Size = System::Drawing::Size(57, 23);
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"Email";
 			// 
@@ -198,7 +201,6 @@ namespace OP {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(614, -4);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(425, 564);
@@ -225,6 +227,7 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm1";
 			this->Text = L"MyForm1";
+			this->Load += gcnew System::EventHandler(this, &MyForm1::MyForm1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -234,5 +237,22 @@ namespace OP {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		Form::Close();
 	}
+	
+private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	test obj;
+	string email = msclr::interop::marshal_as<std::string>(textBox_username->Text);
+	string pass = msclr::interop::marshal_as<std::string>(textBox_password->Text);
+	obj.email_insert(email, pass);
+	Form::Close();
+	
+}
+private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
+	String^ folderPath = Application::StartupPath;
+	folderPath += "\\images\\";
+	String^ fileName = "train.jpg";
+	//String^ pathString = System::IO::Path::Combine(folderPath, fileName);
+	pictureBox1->Image = Image::FromFile(folderPath + fileName);
+}
 };
 }

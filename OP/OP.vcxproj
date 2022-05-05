@@ -126,22 +126,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cc.cpp" />
-    <ClCompile Include="Email_login.cpp" />
+    <ClCompile Include="adminForm1h.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cc.h" />
-    <ClInclude Include="Email_login.h" />
+    <ClInclude Include="adminForm1h.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="adminForm1h.resx">
+      <DependentUpon>adminForm1h.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
