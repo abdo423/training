@@ -9,7 +9,7 @@ using namespace System;
 	{
 		driver = get_driver_instance();
 		con = driver->connect(server, username, password);
-		con->setSchema("ds_trail");
+		con->setSchema("tsts");
 	}
 	catch (SQLException e)
 	{
@@ -93,12 +93,12 @@ bool test::dbCompare(string email, string pass,string query)
 
 
 void test::email_insert(string email, string password) {
-	dbSet("INSERT INTO login (email, pass)VALUES('" + email + "','" + password + "')");
+	dbSet("INSERT INTO ds_trail VALUES('" + email + "','" + password + "')");
 }
 
 bool test::login(string email, string password)
 {
-	return dbCompare(email, password, "select * from login");
+	return dbCompare(email, password, "select * from ds_trail");
 }
 
 

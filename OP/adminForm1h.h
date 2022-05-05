@@ -77,6 +77,11 @@ namespace OP {
 	private: System::Windows::Forms::Panel^ panel5;
 
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
 
 
 
@@ -104,10 +109,13 @@ namespace OP {
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -124,13 +132,20 @@ namespace OP {
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel5->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -150,11 +165,21 @@ namespace OP {
 			// 
 			// panel3
 			// 
+			this->panel3->Controls->Add(this->pictureBox4);
 			this->panel3->Controls->Add(this->button5);
 			this->panel3->Location = System::Drawing::Point(962, 549);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(271, 76);
 			this->panel3->TabIndex = 12;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Location = System::Drawing::Point(5, 4);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(81, 69);
+			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox4->TabIndex = 8;
+			this->pictureBox4->TabStop = false;
 			// 
 			// button5
 			// 
@@ -173,11 +198,21 @@ namespace OP {
 			// 
 			// panel4
 			// 
+			this->panel4->Controls->Add(this->pictureBox2);
 			this->panel4->Controls->Add(this->button6);
 			this->panel4->Location = System::Drawing::Point(492, 549);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(215, 76);
 			this->panel4->TabIndex = 12;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(5, 4);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(81, 69);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox2->TabIndex = 10;
+			this->pictureBox2->TabStop = false;
 			// 
 			// button6
 			// 
@@ -196,11 +231,21 @@ namespace OP {
 			// 
 			// panel2
 			// 
+			this->panel2->Controls->Add(this->pictureBox5);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Location = System::Drawing::Point(12, 549);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(199, 76);
 			this->panel2->TabIndex = 11;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Location = System::Drawing::Point(5, 3);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(81, 69);
+			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox5->TabIndex = 11;
+			this->pictureBox5->TabStop = false;
 			// 
 			// label1
 			// 
@@ -280,6 +325,7 @@ namespace OP {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(425, 34);
 			this->textBox1->TabIndex = 18;
+			this->textBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox1_KeyDown);
 			// 
 			// textBox2
 			// 
@@ -289,6 +335,7 @@ namespace OP {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(425, 34);
 			this->textBox2->TabIndex = 19;
+			this->textBox2->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox2_KeyDown);
 			// 
 			// textBox3
 			// 
@@ -298,6 +345,7 @@ namespace OP {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(425, 34);
 			this->textBox3->TabIndex = 20;
+			this->textBox3->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox3_KeyDown);
 			// 
 			// textBox4
 			// 
@@ -307,6 +355,7 @@ namespace OP {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(425, 34);
 			this->textBox4->TabIndex = 21;
+			this->textBox4->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox4_KeyDown);
 			// 
 			// textBox5
 			// 
@@ -316,6 +365,7 @@ namespace OP {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(425, 34);
 			this->textBox5->TabIndex = 22;
+			this->textBox5->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox5_KeyDown);
 			// 
 			// textBox6
 			// 
@@ -325,6 +375,7 @@ namespace OP {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(425, 34);
 			this->textBox6->TabIndex = 23;
+			this->textBox6->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox6_KeyDown);
 			// 
 			// textBox7
 			// 
@@ -334,6 +385,7 @@ namespace OP {
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(425, 34);
 			this->textBox7->TabIndex = 24;
+			this->textBox7->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox7_KeyDown);
 			// 
 			// button3
 			// 
@@ -352,19 +404,39 @@ namespace OP {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Location = System::Drawing::Point(748, 556);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(199, 76);
 			this->panel1->TabIndex = 12;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(3, 3);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(81, 69);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 9;
+			this->pictureBox1->TabStop = false;
+			// 
 			// panel5
 			// 
+			this->panel5->Controls->Add(this->pictureBox3);
 			this->panel5->Controls->Add(this->button4);
 			this->panel5->Location = System::Drawing::Point(247, 556);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(199, 76);
 			this->panel5->TabIndex = 25;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Location = System::Drawing::Point(3, 4);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(81, 69);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox3->TabIndex = 11;
+			this->pictureBox3->TabStop = false;
 			// 
 			// button4
 			// 
@@ -410,11 +482,17 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"adminForm1h";
 			this->Text = L"Admin";
+			this->Load += gcnew System::EventHandler(this, &adminForm1h::adminForm1h_Load);
 			this->panel3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->panel4->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel5->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -433,6 +511,7 @@ namespace OP {
 			textBox6->Text = "";
 			textBox7->Text = "";
 			last_train_viewed = "";
+			textBox2->Enabled = true;
 		}
 
 
@@ -585,7 +664,7 @@ namespace OP {
 			loopInVeiwData = 0;
 			*/
 
-
+		textBox2->Enabled = false;
 
 
 
@@ -594,6 +673,7 @@ namespace OP {
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { // this button makes text boxs empty
 		clear();
+		
 	}
 
 
@@ -649,5 +729,49 @@ namespace OP {
 			 //, "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK
 		 */
 	}
-	};
+	private: System::Void adminForm1h_Load(System::Object^ sender, System::EventArgs^ e) {
+		String^ folderPath = Application::StartupPath;
+		folderPath += "\\images\\";
+		String^ fileName = "add.png";
+		pictureBox5->Image = Image::FromFile(folderPath + fileName);
+		fileName = "clear.png";
+		pictureBox1->Image = Image::FromFile(folderPath + fileName);
+		fileName = "delete.png";
+		pictureBox3->Image = Image::FromFile(folderPath + fileName);
+		fileName = "trainIcon.png";
+		pictureBox4->Image = Image::FromFile(folderPath + fileName);
+		fileName = "Update.png";
+		pictureBox2->Image = Image::FromFile(folderPath + fileName);
+		this->ActiveControl = textBox1;
+	}
+private: System::Void textBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if(e->KeyCode == Keys::Enter)
+		textBox2->Select();
+}
+private: System::Void textBox2_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox3->Select();
+}
+private: System::Void textBox3_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox4->Select();
+}
+private: System::Void textBox4_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox5->Select();
+}
+private: System::Void textBox5_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox6->Select();
+}
+private: System::Void textBox6_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox7->Select();
+}
+private: System::Void textBox7_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox1->Select();
+}
+
+};
 }

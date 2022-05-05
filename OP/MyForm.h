@@ -160,6 +160,7 @@ namespace OP {
 			this->textBox_password->PasswordChar = '*';
 			this->textBox_password->Size = System::Drawing::Size(343, 29);
 			this->textBox_password->TabIndex = 8;
+			this->textBox_password->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::textBox_password_KeyDown);
 			// 
 			// textBox_username
 			// 
@@ -175,6 +176,7 @@ namespace OP {
 			this->textBox_username->Size = System::Drawing::Size(343, 29);
 			this->textBox_username->TabIndex = 9;
 			this->textBox_username->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox_username_TextChanged);
+			this->textBox_username->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::textBox_username_KeyDown);
 			// 
 			// label3
 			// 
@@ -183,7 +185,7 @@ namespace OP {
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(46, 261);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(90, 23);
+			this->label3->Size = System::Drawing::Size(95, 24);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Password";
 			// 
@@ -195,7 +197,7 @@ namespace OP {
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(46, 160);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(96, 23);
+			this->label2->Size = System::Drawing::Size(102, 24);
 			this->label2->TabIndex = 6;
 			this->label2->Text = L"Username";
 			// 
@@ -253,8 +255,12 @@ namespace OP {
 	}
 
 	private: System::Void Reg_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Hide();
 		MyForm1^ x = gcnew MyForm1();
-		x->Show();
+		x->ShowDialog();
+		textBox_username->Clear();
+		textBox_password->Clear();
+		this->Show();
 	}
 
 	private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -292,11 +298,11 @@ namespace OP {
 			p = x.login(g, q);
 			if (p)
 			{
-				MessageBox::Show("mission success , this should open passenger form");
+				MessageBox::Show("welcome , this should open passenger form");
 			}
 			else
 			{
-				MessageBox::Show("mission failed");
+				MessageBox::Show("Username or Password is wrong :( ");
 			}
 		}
 	}
@@ -304,7 +310,19 @@ private: System::Void textBox_username_TextChanged(System::Object^ sender, Syste
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->ActiveControl = textBox_username;
+	String^ folderPath = Application::StartupPath;
+	folderPath += "\\images\\";
+	String^ fileName = "clock.jpg";
+	pictureBox1->Image = Image::FromFile(folderPath + fileName);
 
+}
+private: System::Void textBox_username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox_password->Select();
+}
+private: System::Void textBox_password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		Sign->PerformClick();
 }
 };
 }

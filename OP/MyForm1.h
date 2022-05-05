@@ -149,6 +149,7 @@
 			this->textBox_password->PasswordChar = '*';
 			this->textBox_password->Size = System::Drawing::Size(343, 29);
 			this->textBox_password->TabIndex = 16;
+			this->textBox_password->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm1::textBox_password_KeyDown_1);
 			// 
 			// textBox_username
 			// 
@@ -163,6 +164,7 @@
 			this->textBox_username->Name = L"textBox_username";
 			this->textBox_username->Size = System::Drawing::Size(343, 29);
 			this->textBox_username->TabIndex = 17;
+			this->textBox_username->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm1::textBox_username_KeyDown_1);
 			// 
 			// label3
 			// 
@@ -171,7 +173,7 @@
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(43, 284);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(90, 23);
+			this->label3->Size = System::Drawing::Size(95, 24);
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"Password";
 			// 
@@ -183,7 +185,7 @@
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(43, 183);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(57, 23);
+			this->label2->Size = System::Drawing::Size(58, 24);
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"Email";
 			// 
@@ -253,6 +255,16 @@ private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e)
 	String^ fileName = "train.jpg";
 	//String^ pathString = System::IO::Path::Combine(folderPath, fileName);
 	pictureBox1->Image = Image::FromFile(folderPath + fileName);
+	this->ActiveControl = textBox_username;
+}
+	
+private: System::Void textBox_username_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox_password->Select();
+}
+private: System::Void textBox_password_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		Sign->PerformClick();
 }
 };
 }
