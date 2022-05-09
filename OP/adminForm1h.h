@@ -1,5 +1,6 @@
 ﻿#pragma once
-#include "test.h"
+
+#include "admin.h"
 #include <msclr/marshal_cppstd.h>
 using namespace std;
 namespace OP {
@@ -21,6 +22,7 @@ namespace OP {
 		adminForm1h(void)
 		{
 			InitializeComponent();
+			fillCombo();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -82,6 +84,9 @@ namespace OP {
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Label^ label9;
+
 
 
 
@@ -136,6 +141,8 @@ namespace OP {
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel4->SuspendLayout();
@@ -251,7 +258,7 @@ namespace OP {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(156, 28);
+			this->label1->Location = System::Drawing::Point(68, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(172, 35);
 			this->label1->TabIndex = 11;
@@ -261,7 +268,7 @@ namespace OP {
 			// 
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(147, 105);
+			this->label2->Location = System::Drawing::Point(59, 109);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(226, 35);
 			this->label2->TabIndex = 12;
@@ -271,7 +278,7 @@ namespace OP {
 			// 
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(156, 187);
+			this->label3->Location = System::Drawing::Point(68, 191);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(227, 35);
 			this->label3->TabIndex = 13;
@@ -281,7 +288,7 @@ namespace OP {
 			// 
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(156, 259);
+			this->label4->Location = System::Drawing::Point(68, 263);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(227, 35);
 			this->label4->TabIndex = 14;
@@ -291,7 +298,7 @@ namespace OP {
 			// 
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(156, 334);
+			this->label5->Location = System::Drawing::Point(68, 338);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(227, 35);
 			this->label5->TabIndex = 15;
@@ -301,7 +308,7 @@ namespace OP {
 			// 
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(156, 396);
+			this->label6->Location = System::Drawing::Point(68, 400);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(227, 35);
 			this->label6->TabIndex = 16;
@@ -311,7 +318,7 @@ namespace OP {
 			// 
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(156, 477);
+			this->label7->Location = System::Drawing::Point(68, 481);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(227, 35);
 			this->label7->TabIndex = 17;
@@ -321,7 +328,7 @@ namespace OP {
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(379, 25);
+			this->textBox1->Location = System::Drawing::Point(291, 29);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(425, 34);
 			this->textBox1->TabIndex = 18;
@@ -331,7 +338,7 @@ namespace OP {
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(379, 102);
+			this->textBox2->Location = System::Drawing::Point(291, 106);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(425, 34);
 			this->textBox2->TabIndex = 19;
@@ -341,7 +348,7 @@ namespace OP {
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(379, 184);
+			this->textBox3->Location = System::Drawing::Point(291, 188);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(425, 34);
 			this->textBox3->TabIndex = 20;
@@ -351,7 +358,7 @@ namespace OP {
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(379, 256);
+			this->textBox4->Location = System::Drawing::Point(291, 260);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(425, 34);
 			this->textBox4->TabIndex = 21;
@@ -361,7 +368,7 @@ namespace OP {
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(379, 331);
+			this->textBox5->Location = System::Drawing::Point(291, 335);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(425, 34);
 			this->textBox5->TabIndex = 22;
@@ -371,7 +378,7 @@ namespace OP {
 			// 
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(379, 393);
+			this->textBox6->Location = System::Drawing::Point(291, 397);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(425, 34);
 			this->textBox6->TabIndex = 23;
@@ -381,7 +388,7 @@ namespace OP {
 			// 
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox7->Location = System::Drawing::Point(379, 474);
+			this->textBox7->Location = System::Drawing::Point(291, 478);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(425, 34);
 			this->textBox7->TabIndex = 24;
@@ -453,6 +460,27 @@ namespace OP {
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &adminForm1h::button4_Click);
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(848, 95);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(287, 37);
+			this->comboBox1->TabIndex = 26;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &adminForm1h::comboBox1_SelectedIndexChanged);
+			// 
+			// label9
+			// 
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Uighur", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(848, 47);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(287, 35);
+			this->label9->TabIndex = 28;
+			this->label9->Text = L"Choose Train To View ";
+			// 
 			// adminForm1h
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -460,6 +488,8 @@ namespace OP {
 			this->BackColor = System::Drawing::Color::Wheat;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(1235, 636);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->panel5);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->panel3);
@@ -511,30 +541,16 @@ namespace OP {
 			textBox6->Text = "";
 			textBox7->Text = "";
 			last_train_viewed = "";
+			comboBox1->Text = "";
 			textBox2->Enabled = true;
 		}
 
 
-		bool checkingForNo_Train() {
-			bool check = false;
-			test obj = test();
-			ResultSet* result = obj.dbGet("select * from test_train");
-
-			while (result->next())
-			{
-				if (gcnew String(result->getString(2).c_str()) == textBox2->Text)
-				{
-					check = true;
-					break;
-				}
-			}
-			return check;
-		}
-
-
 		void add() { // func to add row
-			test obj;
-			bool check = checkingForNo_Train();
+			admin obj;
+			
+			string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
+			bool check = obj.checkingForNo_Train(s);
 
 			if (check && MessageBox::Show("this ' Number of Train ' already exist in data base", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error) == System::Windows::Forms::DialogResult::OK)
 				textBox2->Text = "????????????";
@@ -542,16 +558,26 @@ namespace OP {
 			else if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "")
 				MessageBox::Show("There should be no nulls !", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 
+			else if (textBox3->Text == textBox4->Text)
+			{
+				MessageBox::Show("bording point and destination point is the same");
+				textBox4->Text = "";
+
+			}
 			else {
-				obj.dbSet("INSERT INTO test_train  VALUES('" + msclr::interop::marshal_as<std::string>(textBox1->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox2->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox3->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox4->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox5->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox6->Text) + "','" + msclr::interop::marshal_as<std::string>(textBox7->Text) + "')");
+				obj.Add(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text),msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text));
+				fillCombo();
 				clear();
 			}
+			
 		}
 
 
 		void delet() { // func to delete row
-			test obj = test();
-			obj.dbSet("DELETE FROM `tsts`.`test_train` WHERE(`train_number` = '" + msclr::interop::marshal_as<std::string>(textBox2->Text) + "')");
+			admin obj;
+			string del = msclr::interop::marshal_as<std::string>(textBox2->Text);
+			obj.delet(del);
+			fillCombo();
 		}
 
 
@@ -560,98 +586,34 @@ namespace OP {
 	}
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { // add button
+		comboBox1->Items->Add(textBox2->Text);
 		add();
 	}
 
 
+
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) // view rows button
 	{
-		
-
-		// this working without DS
-
-		/*try {
-			test obj;
-			ResultSet* result = obj.dbGet("select * from train");
-
-			int counter = obj.countRowTable("select * from train");
-
-			for (int i = 0; i < loopInVeiwData; i++)
-				result->next();
-			loopInVeiwData++;
-			if (counter+1 == loopInVeiwData)
-				loopInVeiwData = 1;
-
-			textBox1->Text = msclr::interop::marshal_as<System::String^>(result->getString("train name").c_str());
-			textBox2->Text = msclr::interop::marshal_as<System::String^>(result->getString(2).c_str());
-			textBox3->Text = msclr::interop::marshal_as<System::String^>(result->getString(3).c_str());
-
-			textBox4->Text = msclr::interop::marshal_as<System::String^>(result->getString(4).c_str());
-			textBox5->Text = msclr::interop::marshal_as<System::String^>(result->getString(5).c_str());
-			textBox6->Text = msclr::interop::marshal_as<System::String^>(result->getString(6).c_str());
-			textBox7->Text = msclr::interop::marshal_as<System::String^>(result->getString(7).c_str());
-
-		}
-		catch (SQLException e)
-		{
-			MessageBox::Show(gcnew String(e.what()));
-
-			system("pause");
-			exit(1);
-		}*/
-
-
-		// end
-
-
-
-
-
-
-
-
 
 		try {
-			test obj;
-			int f = obj.countRowTable("select * from test_train");
-			if (f == 0)
-			{
-				MessageBox::Show("database is empty");
+			admin obj;
+			if (obj.v2_Num_Train.size() == 0) {
+				MessageBox::Show("DataBase is Empty !!!!");
 				return;
 			}
-			ResultSet* result = obj.dbGet("select * from test_train");
-
-			vector<string> v1_Train_Name;
-			vector<string> v2_Num_Train;
-			vector<string> v3_Boarding_point;
-			vector<string> v4_Destination_point;
-			vector<string> v5_Num_Seats;
-			vector<string> v6_ticket_price;
-			vector<string> v7_Date_travel;
-			while (result->next()) {
-				v1_Train_Name.push_back(result->getString(1).c_str());
-				v2_Num_Train.push_back(result->getString(2).c_str());
-				v3_Boarding_point.push_back(result->getString(3).c_str());
-				v4_Destination_point.push_back(result->getString(4).c_str());
-				v5_Num_Seats.push_back(result->getString(5).c_str());
-				v6_ticket_price.push_back(result->getString(6).c_str());
-				v7_Date_travel.push_back(result->getString(7).c_str());
-			}
-
-
-
-			if (v2_Num_Train.size() <= loopInVeiwData)
+			
+			if (obj.v2_Num_Train.size() <= loopInVeiwData)
 				loopInVeiwData = 0;
 
-			textBox1->Text = msclr::interop::marshal_as<System::String^>(v1_Train_Name.at(loopInVeiwData));
-			textBox2->Text = msclr::interop::marshal_as<System::String^>(v2_Num_Train.at(loopInVeiwData));
-			textBox3->Text = msclr::interop::marshal_as<System::String^>(v3_Boarding_point.at(loopInVeiwData));
-			textBox4->Text = msclr::interop::marshal_as<System::String^>(v4_Destination_point.at(loopInVeiwData));
-			textBox5->Text = msclr::interop::marshal_as<System::String^>(v5_Num_Seats.at(loopInVeiwData));
-			textBox6->Text = msclr::interop::marshal_as<System::String^>(v6_ticket_price.at(loopInVeiwData));
-			textBox7->Text = msclr::interop::marshal_as<System::String^>(v7_Date_travel.at(loopInVeiwData));
+			textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(loopInVeiwData));
+			textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(loopInVeiwData));
+			textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(loopInVeiwData));
+			textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(loopInVeiwData));
+			textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(loopInVeiwData));
+			textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(loopInVeiwData));
+			textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(loopInVeiwData));
 
-			last_train_viewed = msclr::interop::marshal_as<System::String^>(v2_Num_Train.at(loopInVeiwData));
+			last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(loopInVeiwData));
 
 			loopInVeiwData++;
 		}
@@ -663,23 +625,14 @@ namespace OP {
 
 		}
 
-		/*for (int i = 0; result->next(); i++)
-			v.push_back(result);
-
-
-		if (loopInVeiwData == v.size())
-			loopInVeiwData = 0;
-			*/
-
-		textBox2->Enabled = false;
-
-
+		textBox2->Enabled = false;  // to make it cant be changed
 
 	}
 
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { // this button makes text boxs empty
 		clear();
+		
 		
 	}
 
@@ -692,8 +645,9 @@ namespace OP {
 
 
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // update button
-
-		if (checkingForNo_Train() == 1) {
+		admin obj;
+		string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
+		if (obj.checkingForNo_Train(s) == 1) {
 			if (last_train_viewed == textBox2->Text) {
 				if (MessageBox::Show("Are You sure to Update the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
@@ -780,5 +734,32 @@ private: System::Void textBox7_KeyDown(System::Object^ sender, System::Windows::
 		textBox1->Select();
 }
 
+
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	string s;
+	admin obj;
+	for (int i = 0; i < obj.v2_Num_Train.size(); i++) {
+		s = obj.v2_Num_Train.at(i) + " , " + obj.v1_Train_Name.at(i);
+		if (comboBox1->Text == msclr::interop::marshal_as<System::String^>(s)) {
+			textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i));
+			textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
+			textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(i));
+			textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(i));
+			textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(i));
+			textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(i));
+			textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(i));
+			last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
+		}
+
+	}
+	textBox2->Enabled = false;
+}
+	    void fillCombo (void) {
+			comboBox1->Items->Clear();
+			admin obj;
+			for (int i = 0; i < obj.v2_Num_Train.size(); i++)
+				comboBox1->Items->Add(msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i)) + " , " + msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i)));
+	   
+		}
 };
 }
