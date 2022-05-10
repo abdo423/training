@@ -51,7 +51,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -130,7 +130,9 @@
     <ClCompile Include="adminForm1h.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
+    <ClCompile Include="passenger.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="ticket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admin.h" />
@@ -143,7 +145,11 @@
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="passenger.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="test.h" />
+    <ClInclude Include="ticket.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="adminForm1h.resx">
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
       <DependentUpon>MyForm1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passenger.resx">
+      <DependentUpon>passenger.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

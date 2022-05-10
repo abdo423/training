@@ -1,6 +1,7 @@
   OP.adminForm1h.resources - Embedded, ContainedInManifestFile, 
   OP.MyForm.resources - Embedded, ContainedInManifestFile, 
   OP.MyForm1.resources - Embedded, ContainedInManifestFile, 
+  OP.passenger.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly OP, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -20,6 +21,9 @@ Class OP.adminForm1h: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class OP.MyForm1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class OP.passenger: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class OP.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

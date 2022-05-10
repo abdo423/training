@@ -39,3 +39,5 @@ C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.MyForm.resources
 C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.MyForm1.resources
 C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.vcxproj.GenerateResource.cache
 C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.exe
+C:\Users\abdel\Desktop\training\OP\x64\Release\OP.adminForm1h.resources
+C:\Users\abdel\Desktop\training\OP\x64\Release\OP.passenger.resources

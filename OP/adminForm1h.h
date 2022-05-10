@@ -232,7 +232,7 @@ namespace OP {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(120, 66);
 			this->button6->TabIndex = 6;
-			this->button6->Text = L"Update";
+			this->button6->Text = L"passenger";
 			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &adminForm1h::button6_Click);
 			// 
@@ -644,18 +644,18 @@ namespace OP {
 	}
 
 
-	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // update button
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // passenger button
 		admin obj;
 		string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
 		if (obj.checkingForNo_Train(s) == 1) {
 			if (last_train_viewed == textBox2->Text) {
-				if (MessageBox::Show("Are You sure to Update the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
+				if (MessageBox::Show("Are You sure to passenger the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
 					add();
 				}
 			}
 			else
-				MessageBox::Show("sorry , You can't Update data of this train .");
+				MessageBox::Show("sorry , You can't passenger data of this train .");
 			clear();
 		}
 		else {
@@ -666,7 +666,7 @@ namespace OP {
 
 		/*
 		test obj;
-		obj.dbSet("UPDATE test_train SET train_name = \"" + msclr::interop::marshal_as<std::string>(textBox1->Text) + "\" , train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text) + "\" , boarding_point = \"" + msclr::interop::marshal_as<std::string>(textBox3->Text) + "\" , destination_point = \"" + msclr::interop::marshal_as<std::string>(textBox4->Text) + "\" , no_seats = \"" + msclr::interop::marshal_as<std::string>(textBox5->Text) + "\", ticket_price  =  \"" + msclr::interop::marshal_as<std::string>(textBox6->Text) + "\", DataOfTravel  =  \"" + msclr::interop::marshal_as<std::string>(textBox7->Text) + "\" WHERE train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text)+"\" )"  );
+		obj.dbSet("passenger test_train SET train_name = \"" + msclr::interop::marshal_as<std::string>(textBox1->Text) + "\" , train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text) + "\" , boarding_point = \"" + msclr::interop::marshal_as<std::string>(textBox3->Text) + "\" , destination_point = \"" + msclr::interop::marshal_as<std::string>(textBox4->Text) + "\" , no_seats = \"" + msclr::interop::marshal_as<std::string>(textBox5->Text) + "\", ticket_price  =  \"" + msclr::interop::marshal_as<std::string>(textBox6->Text) + "\", DataOfTravel  =  \"" + msclr::interop::marshal_as<std::string>(textBox7->Text) + "\" WHERE train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text)+"\" )"  );
 		clear();
 		*/
 
@@ -701,7 +701,7 @@ namespace OP {
 		pictureBox3->Image = Image::FromFile(folderPath + fileName);
 		fileName = "trainIcon.png";
 		pictureBox4->Image = Image::FromFile(folderPath + fileName);
-		fileName = "Update.png";
+		fileName = "passenger.png";
 		pictureBox2->Image = Image::FromFile(folderPath + fileName);
 		this->ActiveControl = textBox1;
 	}
