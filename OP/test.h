@@ -17,7 +17,7 @@ using namespace System;
 	
 		const string  server = "tcp://127.0.0.1:3306";
 		const string username = "root";
-		const string password = "Bodylovequran1";//Bodylovequran1
+		const string password = "1234";//Bodylovequran1
 
 		Driver* driver;
 		Connection* con;
@@ -27,8 +27,7 @@ using namespace System;
 		int countRowTable(string query);
 		ResultSet* dbGet(string query);
 		bool dbCompare(string email,string pass,string query);
-		ResultSet* dbRetrieve();
-	  void email_insert(string email, string password);
+		void email_insert(string email, string password);
 		bool login(string email, string password);
 		~test();
 	

@@ -1,10 +1,13 @@
 ﻿#pragma once
-
 #include "admin.h"
 #include <msclr/marshal_cppstd.h>
 using namespace std;
-namespace OP {
 
+   static admin obj;
+
+namespace OP {
+	
+	
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -18,11 +21,16 @@ namespace OP {
 	/// </summary>
 	public ref class adminForm1h : public System::Windows::Forms::Form
 	{
+		
 	public:
+		
 		adminForm1h(void)
 		{
+			
 			InitializeComponent();
 			fillCombo();
+			textBox7->Text = "2000-00-00";
+			textBox8->Text = "00:00";
 			//
 			//TODO: Add the constructor code here
 			//
@@ -86,6 +94,9 @@ namespace OP {
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::Label^ label8;
 
 
 
@@ -143,6 +154,9 @@ namespace OP {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel4->SuspendLayout();
@@ -174,7 +188,7 @@ namespace OP {
 			// 
 			this->panel3->Controls->Add(this->pictureBox4);
 			this->panel3->Controls->Add(this->button5);
-			this->panel3->Location = System::Drawing::Point(962, 549);
+			this->panel3->Location = System::Drawing::Point(955, 641);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(271, 76);
 			this->panel3->TabIndex = 12;
@@ -195,7 +209,7 @@ namespace OP {
 			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(92, 3);
+			this->button5->Location = System::Drawing::Point(92, 1);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(159, 72);
 			this->button5->TabIndex = 6;
@@ -207,7 +221,7 @@ namespace OP {
 			// 
 			this->panel4->Controls->Add(this->pictureBox2);
 			this->panel4->Controls->Add(this->button6);
-			this->panel4->Location = System::Drawing::Point(492, 549);
+			this->panel4->Location = System::Drawing::Point(485, 641);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(215, 76);
 			this->panel4->TabIndex = 12;
@@ -232,7 +246,7 @@ namespace OP {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(120, 66);
 			this->button6->TabIndex = 6;
-			this->button6->Text = L"passenger";
+			this->button6->Text = L"Update";
 			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &adminForm1h::button6_Click);
 			// 
@@ -240,7 +254,7 @@ namespace OP {
 			// 
 			this->panel2->Controls->Add(this->pictureBox5);
 			this->panel2->Controls->Add(this->button1);
-			this->panel2->Location = System::Drawing::Point(12, 549);
+			this->panel2->Location = System::Drawing::Point(5, 641);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(199, 76);
 			this->panel2->TabIndex = 11;
@@ -413,7 +427,7 @@ namespace OP {
 			// 
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->button3);
-			this->panel1->Location = System::Drawing::Point(748, 556);
+			this->panel1->Location = System::Drawing::Point(741, 648);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(199, 76);
 			this->panel1->TabIndex = 12;
@@ -431,7 +445,7 @@ namespace OP {
 			// 
 			this->panel5->Controls->Add(this->pictureBox3);
 			this->panel5->Controls->Add(this->button4);
-			this->panel5->Location = System::Drawing::Point(247, 556);
+			this->panel5->Location = System::Drawing::Point(240, 648);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(199, 76);
 			this->panel5->TabIndex = 25;
@@ -452,7 +466,7 @@ namespace OP {
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button4->Location = System::Drawing::Point(90, 0);
+			this->button4->Location = System::Drawing::Point(90, 4);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(106, 69);
 			this->button4->TabIndex = 8;
@@ -465,7 +479,7 @@ namespace OP {
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(848, 95);
+			this->comboBox1->Location = System::Drawing::Point(848, 128);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(287, 37);
 			this->comboBox1->TabIndex = 26;
@@ -475,19 +489,60 @@ namespace OP {
 			// 
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Uighur", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(848, 47);
+			this->label9->Location = System::Drawing::Point(848, 80);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(287, 35);
 			this->label9->TabIndex = 28;
 			this->label9->Text = L"Choose Train To View ";
 			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::Color::White;
+			this->button2->Location = System::Drawing::Point(1159, 16);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(64, 47);
+			this->button2->TabIndex = 12;
+			this->button2->Text = L"X";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &adminForm1h::button2_Click_1);
+			// 
+			// textBox8
+			// 
+			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox8->Location = System::Drawing::Point(291, 547);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(425, 34);
+			this->textBox8->TabIndex = 30;
+			this->textBox8->TextChanged += gcnew System::EventHandler(this, &adminForm1h::textBox8_TextChanged);
+			// 
+			// label8
+			// 
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(68, 550);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(227, 35);
+			this->label8->TabIndex = 29;
+			this->label8->Text = L"Time of travel : ";
+			// 
 			// adminForm1h
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
 			this->BackColor = System::Drawing::Color::Wheat;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->ClientSize = System::Drawing::Size(1235, 636);
+			this->ClientSize = System::Drawing::Size(1235, 808);
+			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->panel5);
@@ -509,7 +564,7 @@ namespace OP {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"adminForm1h";
 			this->Text = L"Admin";
 			this->Load += gcnew System::EventHandler(this, &adminForm1h::adminForm1h_Load);
@@ -530,7 +585,7 @@ namespace OP {
 #pragma endregion
 		int loopInVeiwData = 0;
 		String^ last_train_viewed = "";
-
+		
 
 		void clear() { // func to make text boxs empty
 			textBox1->Clear();
@@ -539,23 +594,65 @@ namespace OP {
 			textBox4->Text = "";
 			textBox5->Text = "";
 			textBox6->Text = "";
-			textBox7->Text = "";
+			textBox7->Text = "2000-00-00";
+			textBox8->Text = "00:00";
 			last_train_viewed = "";
 			comboBox1->Text = "";
 			textBox2->Enabled = true;
+			fillCombo();
 		}
 
 
+		bool checkingForNo_Train(string s) {
+			bool check = false;
+
+			for (int i = 0; i < obj.v2_Num_Train.size(); i++)
+			{
+				if (obj.v2_Num_Train.at(i) == s)
+				{
+					check = true;
+					break;
+				}
+			}
+			return check;
+		}
+
+
+
+		void delet() { // func to delete row
+			if (last_train_viewed == textBox2->Text) 
+				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
+					MessageBox::Show("There should be no nulls !");
+					return;
+				}
+				else if (textBox3->Text == textBox4->Text)
+				{
+					MessageBox::Show("bording point and destination point is the same");
+					textBox4->Text = "";
+					return;
+				}
+				else {
+					string del = msclr::interop::marshal_as<std::string>(textBox2->Text);
+					obj.deletRow(del);
+				}
+		}
+
+		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { // delete button
+			delet();
+			clear();
+
+		}
+
 		void add() { // func to add row
-			admin obj;
+			
 			
 			string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
-			bool check = obj.checkingForNo_Train(s);
+			bool check = checkingForNo_Train(s);
 
 			if (check && MessageBox::Show("this ' Number of Train ' already exist in data base", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error) == System::Windows::Forms::DialogResult::OK)
 				textBox2->Text = "????????????";
 
-			else if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "")
+			else if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "")
 				MessageBox::Show("There should be no nulls !", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 
 			else if (textBox3->Text == textBox4->Text)
@@ -565,38 +662,41 @@ namespace OP {
 
 			}
 			else {
-				obj.Add(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text),msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text));
-				fillCombo();
+				obj.AddRow(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text), msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text));
 				clear();
 			}
 			
 		}
 
 
-		void delet() { // func to delete row
-			admin obj;
-			string del = msclr::interop::marshal_as<std::string>(textBox2->Text);
-			obj.delet(del);
-			fillCombo();
-		}
 
 
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { // X button
-		this->Close();
-	}
+	
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { // add button
-		comboBox1->Items->Add(textBox2->Text);
+		comboBox1->Items->Add(textBox2->Text + " , "+ textBox1->Text);
 		add();
 	}
 
+
+	void view(int i) {
+		textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i));
+		textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
+		textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(i));
+		textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(i));
+		textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(i));
+		textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(i));
+		textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(i));
+		textBox8->Text = msclr::interop::marshal_as<System::String^>(obj.v8_Time_travel.at(i));
+		last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
+	}
 
 
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) // view rows button
 	{
 
 		try {
-			admin obj;
+			
 			if (obj.v2_Num_Train.size() == 0) {
 				MessageBox::Show("DataBase is Empty !!!!");
 				return;
@@ -605,15 +705,8 @@ namespace OP {
 			if (obj.v2_Num_Train.size() <= loopInVeiwData)
 				loopInVeiwData = 0;
 
-			textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(loopInVeiwData));
-			textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(loopInVeiwData));
-			textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(loopInVeiwData));
-			textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(loopInVeiwData));
-			textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(loopInVeiwData));
-			textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(loopInVeiwData));
-			textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(loopInVeiwData));
-
-			last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(loopInVeiwData));
+			view(loopInVeiwData);
+			
 
 			loopInVeiwData++;
 		}
@@ -631,65 +724,45 @@ namespace OP {
 
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { // this button makes text boxs empty
-		clear();
-		
-		
+		clear();	
 	}
 
 
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { // delete button
-		delet();
-		clear();
-
-	}
+	
 
 
-	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // passenger button
-		admin obj;
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // update button
+		
 		string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
-		if (obj.checkingForNo_Train(s) == 1) {
+		if (checkingForNo_Train(s) == 1) {
+
 			if (last_train_viewed == textBox2->Text) {
-				if (MessageBox::Show("Are You sure to passenger the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
+				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
+					MessageBox::Show("There should be no nulls !");
+					return;
+				}
+				else if (textBox3->Text == textBox4->Text)
+				{
+					MessageBox::Show("bording point and destination point is the same");
+					textBox4->Text = "";
+					return;
+				}
+				if (MessageBox::Show("Are You sure to Update the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
 					add();
 				}
 			}
 			else
-				MessageBox::Show("sorry , You can't passenger data of this train .");
+				MessageBox::Show("sorry , You can't Update data of this train .");
 			clear();
 		}
 		else {
 			MessageBox::Show("This train with number ( " + textBox2->Text + " ) isn't exist.", "Error", MessageBoxButtons::OKCancel, MessageBoxIcon::Error);
 			textBox2->Text = "Plz , Enter correct number of train .";
 		}
-
-
-		/*
-		test obj;
-		obj.dbSet("passenger test_train SET train_name = \"" + msclr::interop::marshal_as<std::string>(textBox1->Text) + "\" , train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text) + "\" , boarding_point = \"" + msclr::interop::marshal_as<std::string>(textBox3->Text) + "\" , destination_point = \"" + msclr::interop::marshal_as<std::string>(textBox4->Text) + "\" , no_seats = \"" + msclr::interop::marshal_as<std::string>(textBox5->Text) + "\", ticket_price  =  \"" + msclr::interop::marshal_as<std::string>(textBox6->Text) + "\", DataOfTravel  =  \"" + msclr::interop::marshal_as<std::string>(textBox7->Text) + "\" WHERE train_number = \"" + msclr::interop::marshal_as<std::string>(textBox2->Text)+"\" )"  );
-		clear();
-		*/
-
-
-
-
-
-		/*bool check1 = false;
-	 bool check2 = checkingForNo_Train();
-		if (textBox2->Text == khaild)
-		check1 = true;
-
-		 if (check1 || check2)  {
-
-			 MessageBox::Show("you want to change no.train from " + khaild + " to " + textBox2->Text + " that this operation  must not make .");
-
-		 }
-		 else {
-			 delet();
-			 add();
-			 //, "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK
-		 */
 	}
+
+
 	private: System::Void adminForm1h_Load(System::Object^ sender, System::EventArgs^ e) {
 		String^ folderPath = Application::StartupPath;
 		folderPath += "\\images\\";
@@ -701,65 +774,87 @@ namespace OP {
 		pictureBox3->Image = Image::FromFile(folderPath + fileName);
 		fileName = "trainIcon.png";
 		pictureBox4->Image = Image::FromFile(folderPath + fileName);
-		fileName = "passenger.png";
+		fileName = "Update.png";
 		pictureBox2->Image = Image::FromFile(folderPath + fileName);
 		this->ActiveControl = textBox1;
 	}
-private: System::Void textBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if(e->KeyCode == Keys::Enter)
-		textBox2->Select();
-}
-private: System::Void textBox2_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox3->Select();
-}
-private: System::Void textBox3_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox4->Select();
-}
-private: System::Void textBox4_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox5->Select();
-}
-private: System::Void textBox5_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox6->Select();
-}
-private: System::Void textBox6_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox7->Select();
-}
-private: System::Void textBox7_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox1->Select();
-}
 
 
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	string s;
-	admin obj;
-	for (int i = 0; i < obj.v2_Num_Train.size(); i++) {
-		s = obj.v2_Num_Train.at(i) + " , " + obj.v1_Train_Name.at(i);
-		if (comboBox1->Text == msclr::interop::marshal_as<System::String^>(s)) {
-			textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i));
-			textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
-			textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(i));
-			textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(i));
-			textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(i));
-			textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(i));
-			textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(i));
-			last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
-		}
-
+	private: System::Void textBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if(e->KeyCode == Keys::Enter)
+			textBox2->Select();
 	}
-	textBox2->Enabled = false;
-}
-	    void fillCombo (void) {
-			comboBox1->Items->Clear();
-			admin obj;
-			for (int i = 0; i < obj.v2_Num_Train.size(); i++)
-				comboBox1->Items->Add(msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i)) + " , " + msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i)));
-	   
+
+
+	private: System::Void textBox2_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox3->Select();
+	}
+
+
+	private: System::Void textBox3_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox4->Select();
+	}
+
+
+	private: System::Void textBox4_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox5->Select();
+	}
+
+
+	private: System::Void textBox5_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox6->Select();
+	}
+
+
+	private: System::Void textBox6_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox7->Select();
+	}
+
+
+	private: System::Void textBox7_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox1->Select();
+	}
+
+
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		string s;
+	
+		for (int i = 0; i < obj.v2_Num_Train.size(); i++) {
+			s = obj.v2_Num_Train.at(i) + " , " + obj.v1_Train_Name.at(i);
+
+			if (comboBox1->Text == msclr::interop::marshal_as<System::String^>(s)) 
+				view(i);
+
 		}
+		textBox2->Enabled = false;
+	}
+
+
+
+	void fillCombo (void) {
+		comboBox1->Items->Clear();
+	
+		for (int i = 0; i < obj.v2_Num_Train.size(); i++)
+			comboBox1->Items->Add(msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i)) + " , " + msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i)));
+	   
+	}
+
+
+	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
+		obj.deletDB();  //deleting old rows in data base
+		
+		obj.insertDB();  //adding new rows in data base
+
+		this->Close();
+	}
+private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

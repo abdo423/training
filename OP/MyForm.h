@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "adminForm1h.h"
 #include "MyForm1.h"
-#include "passenger.h"
+
 #include <msclr/marshal_cppstd.h>
 
 
@@ -298,12 +298,7 @@ namespace OP {
 			p = x.login(g, q);
 			if (p)
 			{
-				this->Hide();
-				passenger^ h = gcnew passenger();
-				h->ShowDialog();
-				textBox_username->Clear();
-				textBox_password->Clear();
-				this->Show();
+				MessageBox::Show("welcome , this should open passenger form");
 			}
 			else
 			{
