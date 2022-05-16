@@ -17,7 +17,7 @@ using namespace System;
 	
 		const string  server = "tcp://127.0.0.1:3306";
 		const string username = "root";
-		const string password = "1234";//Bodylovequran1
+		const string password = "Bodylovequran1";//Bodylovequran1
 
 		Driver* driver;
 		Connection* con;

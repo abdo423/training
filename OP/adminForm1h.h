@@ -1,9 +1,13 @@
 ﻿#pragma once
-#include "admin.h"
+#include "trains.h"
 #include <msclr/marshal_cppstd.h>
+#include<vector>
+#include"admin.h"
+static admin obj =admin();
+
 using namespace std;
 
-   static admin obj;
+   
 
 namespace OP {
 	
@@ -566,7 +570,7 @@ namespace OP {
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"adminForm1h";
-			this->Text = L"Admin";
+			this->Text = L"trains";
 			this->Load += gcnew System::EventHandler(this, &adminForm1h::adminForm1h_Load);
 			this->panel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
@@ -603,19 +607,19 @@ namespace OP {
 		}
 
 
-		bool checkingForNo_Train(string s) {
-			bool check = false;
+		//bool checkingForNo_Train(int s) {
+		//	bool check = false;
 
-			for (int i = 0; i < obj.v2_Num_Train.size(); i++)
-			{
-				if (obj.v2_Num_Train.at(i) == s)
-				{
-					check = true;
-					break;
-				}
-			}
-			return check;
-		}
+		//	for (int i = 0; i < obj.v2_Num_Train.size(); i++)
+		//	{
+		//		if (obj.admin.size() == s)
+		//		{
+		//			check = true;
+		//			break;
+		//		}
+		//	}
+		//	return check;
+		//}
 
 
 
@@ -647,7 +651,7 @@ namespace OP {
 			
 			
 			string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
-			bool check = checkingForNo_Train(s);
+			bool check = obj.checkingForNo_Train(s);
 
 			if (check && MessageBox::Show("this ' Number of Train ' already exist in data base", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error) == System::Windows::Forms::DialogResult::OK)
 				textBox2->Text = "????????????";
@@ -679,17 +683,19 @@ namespace OP {
 	}
 
 
-	void view(int i) {
-		textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i));
-		textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
-		textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.v3_Boarding_point.at(i));
-		textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.v4_Destination_point.at(i));
-		textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.v5_Num_Seats.at(i));
-		textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.v6_ticket_price.at(i));
-		textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.v7_Date_travel.at(i));
-		textBox8->Text = msclr::interop::marshal_as<System::String^>(obj.v8_Time_travel.at(i));
-		last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i));
-	}
+		   void view(int i) {
+			  
+				   textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_name);
+				   textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
+				   textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].boarding_point);
+				   textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].destination_point);
+				   textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].no_seats);
+				   textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].ticket_price);
+				   textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].DateOfTravel);
+				   textBox8->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].TimeOfTravel);
+				   last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
+			
+		   }
 
 
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) // view rows button
@@ -697,12 +703,12 @@ namespace OP {
 
 		try {
 			
-			if (obj.v2_Num_Train.size() == 0) {
+			if (obj.adminTrains.size() == 0) {
 				MessageBox::Show("DataBase is Empty !!!!");
 				return;
 			}
 			
-			if (obj.v2_Num_Train.size() <= loopInVeiwData)
+			if (obj.adminTrains.size() <= loopInVeiwData)
 				loopInVeiwData = 0;
 
 			view(loopInVeiwData);
@@ -734,7 +740,7 @@ namespace OP {
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) { // update button
 		
 		string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
-		if (checkingForNo_Train(s) == 1) {
+		if (obj.checkingForNo_Train(s) == 1) {
 
 			if (last_train_viewed == textBox2->Text) {
 				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
@@ -747,18 +753,18 @@ namespace OP {
 					textBox4->Text = "";
 					return;
 				}
-				if (MessageBox::Show("Are You sure to Update the data of train's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
+				if (MessageBox::Show("Are You sure to Update the data of admin's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
 					add();
 				}
 			}
 			else
-				MessageBox::Show("sorry , You can't Update data of this train .");
+				MessageBox::Show("sorry , You can't Update data of this admin .");
 			clear();
 		}
 		else {
-			MessageBox::Show("This train with number ( " + textBox2->Text + " ) isn't exist.", "Error", MessageBoxButtons::OKCancel, MessageBoxIcon::Error);
-			textBox2->Text = "Plz , Enter correct number of train .";
+			MessageBox::Show("This admin with number ( " + textBox2->Text + " ) isn't exist.", "Error", MessageBoxButtons::OKCancel, MessageBoxIcon::Error);
+			textBox2->Text = "Plz , Enter correct number of admin .";
 		}
 	}
 
@@ -825,8 +831,8 @@ namespace OP {
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 		string s;
 	
-		for (int i = 0; i < obj.v2_Num_Train.size(); i++) {
-			s = obj.v2_Num_Train.at(i) + " , " + obj.v1_Train_Name.at(i);
+		for (int i = 0; i < obj.adminTrains.size();i++) {
+			s = obj.adminTrains[i].train_number + " , " + obj.adminTrains[i].train_name;
 
 			if (comboBox1->Text == msclr::interop::marshal_as<System::String^>(s)) 
 				view(i);
@@ -840,8 +846,8 @@ namespace OP {
 	void fillCombo (void) {
 		comboBox1->Items->Clear();
 	
-		for (int i = 0; i < obj.v2_Num_Train.size(); i++)
-			comboBox1->Items->Add(msclr::interop::marshal_as<System::String^>(obj.v2_Num_Train.at(i)) + " , " + msclr::interop::marshal_as<System::String^>(obj.v1_Train_Name.at(i)));
+		for (int i = 0; i < obj.adminTrains.size(); i++)
+			comboBox1->Items->Add(msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number) + " , " + msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_name));
 	   
 	}
 

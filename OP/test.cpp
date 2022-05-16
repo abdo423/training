@@ -3,17 +3,24 @@
 #include<string>
 using namespace System;
 
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+using namespace System::Data::SqlClient;
  test::test()
 {
 	try
 	{
 		driver = get_driver_instance();
 		con = driver->connect(server, username, password);
-		con->setSchema("tsts");
+		con->setSchema("ds_trial");
 	}
 	catch (SQLException e)
 	{
-		cout << "Could not connect to server. Error message: " << e.what() << endl;
+		MessageBox::Show(gcnew String(e.what()));
 		system("pause");
 		exit(1);
 	}
@@ -93,12 +100,12 @@ bool test::dbCompare(string email, string pass,string query)
 
 
 void test::email_insert(string email, string password) {
-	dbSet("INSERT INTO ds_trail VALUES('" + email + "','" + password + "')");
+	dbSet("INSERT INTO login VALUES('" + email + "','" + password + "')");
 }
 
 bool test::login(string email, string password)
 {
-	return dbCompare(email, password, "select * from ds_trail");
+	return dbCompare(email, password, "select * from login");
 }
 
 

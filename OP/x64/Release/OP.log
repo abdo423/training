@@ -1,11 +1,4 @@
-﻿  MyForm.cpp
-  MyForm1.cpp
-  admin.cpp
-  adminForm1h.cpp
-  test.cpp
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
-  Generating Code...
-  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_util.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_util.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info
