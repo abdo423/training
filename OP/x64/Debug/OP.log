@@ -1,42 +1,51 @@
-﻿  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  MyForm.cpp
+  MyForm1.cpp
+  admin.cpp
+  adminForm1h.cpp
+  passenger.cpp
+  test.cpp
+  ticket.cpp
+  Generating Code...
+C:\Users\abdel\Desktop\training\OP\test.cpp(123): warning C4715: 'test::dbRetrieve': not all control paths return a value
+  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 mysqlcppconn-static.lib(dns_srv.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(dns_srv.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(mysql_art_resultset.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_art_resultset.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_connection.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(client.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(client.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(errmsg.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(errmsg.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(mysql_util.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_util.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_util.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_util.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_util.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_util.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_rset_metadata.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_rset_metadata.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_uri.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_uri.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_uri.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_uri.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_uri.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_uri.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_metadata.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_metadata.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_metadata.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_metadata.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_warning.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_warning.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_warning.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_warning.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_warning.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_warning.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_prepared_statement.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_prepared_statement.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_prepared_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_prepared_statement.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_prepared_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_prepared_statement.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_statement.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_statement.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_statement.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_statement.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_statement.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_debug.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_debug.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
+mysqlcppconn-static.lib(mysql_debug.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_debug.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(client_authentication.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(client_authentication.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_debug.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_debug.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_trace.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_trace.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(libmysql.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
@@ -103,19 +112,19 @@ mysqlcppconn-static.lib(psi_noop.obj) : error LNK2038: mismatch detected for '_I
 mysqlcppconn-static.lib(psi_noop.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(mysql_resultbind.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_resultbind.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_resultbind.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultbind.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultbind.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultbind.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_ps_resultset.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_ps_resultset.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_ps_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_ps_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_ps_resultset_metadata.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_parameter_metadata.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_parameter_metadata.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_parameter_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_parameter_metadata.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_parameter_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_parameter_metadata.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_resultset.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_resultset.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(crypt_genhash_impl.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(crypt_genhash_impl.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(sha2_password_common.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
@@ -186,7 +195,7 @@ mysqlcppconn-static.lib(my_thread.obj) : error LNK2038: mismatch detected for '_
 mysqlcppconn-static.lib(my_thread.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset_metadata.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_resultset_metadata.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(ctype-mb.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(ctype-mb.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(xml.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
@@ -223,28 +232,24 @@ mysqlcppconn-static.lib(my_access.obj) : error LNK2038: mismatch detected for '_
 mysqlcppconn-static.lib(my_access.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(my_winerr.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(my_winerr.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-     Creating library C:\Users\Dell\Desktop\training\OP\x64\Debug\OP.lib and object C:\Users\Dell\Desktop\training\OP\x64\Debug\OP.exp
+     Creating library C:\Users\abdel\Desktop\training\OP\x64\Debug\OP.lib and object C:\Users\abdel\Desktop\training\OP\x64\Debug\OP.exp
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
 mysqlcppconn-static.lib(mysql_driver.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_driver.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_driver_wrapper.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_client_api.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_client_api.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_client_api.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_client_api.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_client_api.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_client_api.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_connection_wrapper.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
 mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
 mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in admin.obj
+mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in admin.obj
-mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
-mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj)' or at 'C:\Users\Dell\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
-ticket.obj : error LNK2028: unresolved token (0A0006FA) "public: class sql::ResultSet * __cdecl test::dbRetrieve(void)" (?dbRetrieve@test@@$$FQEAAPEAVResultSet@sql@@XZ) referenced in function "protected: struct std::_Tree_find_result<struct std::_Tree_node<struct std::pair<class sql::SQLString const ,class sql::SQLString>,void *> *> __cdecl std::_Tree<class std::_Tmap_traits<class sql::SQLString,class sql::SQLString,struct std::less<class sql::SQLString>,class std::allocator<struct std::pair<class sql::SQLString const ,class sql::SQLString> >,0> >::_Find_lower_bound<class sql::SQLString>(class sql::SQLString const &)const " (??$_Find_lower_bound@VSQLString@sql@@@?$_Tree@V?$_Tmap_traits@VSQLString@sql@@V12@U?$less@VSQLString@sql@@@std@@V?$allocator@U?$pair@$$CBVSQLString@sql@@V12@@std@@@4@$0A@@std@@@std@@$$FIEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CBVSQLString@sql@@V12@@std@@PEAX@std@@@1@AEBVSQLString@sql@@@Z)
-passenger.obj : error LNK2028: unresolved token (0A0006F1) "public: class sql::ResultSet * __cdecl test::dbRetrieve(void)" (?dbRetrieve@test@@$$FQEAAPEAVResultSet@sql@@XZ) referenced in function "private: void __clrcall OP::update::button3_Click(class System::Object ^,class System::EventArgs ^)" (?button3_Click@update@OP@@$$FAE$AAMXPE$AAVObject@System@@PE$AAVEventArgs@4@@Z)
-passenger.obj : error LNK2019: unresolved external symbol "public: class sql::ResultSet * __cdecl test::dbRetrieve(void)" (?dbRetrieve@test@@$$FQEAAPEAVResultSet@sql@@XZ) referenced in function "private: void __clrcall OP::update::button3_Click(class System::Object ^,class System::EventArgs ^)" (?button3_Click@update@OP@@$$FAE$AAMXPE$AAVObject@System@@PE$AAVEventArgs@4@@Z)
-ticket.obj : error LNK2001: unresolved external symbol "public: class sql::ResultSet * __cdecl test::dbRetrieve(void)" (?dbRetrieve@test@@$$FQEAAPEAVResultSet@sql@@XZ)
-C:\Users\Dell\Desktop\training\OP\x64\Debug\OP.exe : fatal error LNK1120: 3 unresolved externals
+mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Debug\jdbc.pdb'; linking object as if no debug info
+C:\Users\abdel\Desktop\training\OP\x64\Debug\OP.exe : fatal error LNK1319: 220 mismatches detected

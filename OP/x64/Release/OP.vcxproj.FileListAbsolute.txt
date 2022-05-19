@@ -8,6 +8,7 @@ C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm.resources
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm1.resources
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.exe
+C:\Users\DELL\Desktop\training\OP\x64\Release\OP.vcxprojAssemblyReference.cache
 C:\Users\DELL\Desktop\training\OP\x64\Release\OP.MyForm.resources
 C:\Users\DELL\Desktop\training\OP\x64\Release\OP.MyForm1.resources
 C:\Users\DELL\Desktop\training\OP\x64\Release\OP.vcxproj.GenerateResource.cache
@@ -39,6 +40,4 @@ C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.MyForm1.resources
 C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.vcxproj.GenerateResource.cache
 C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.exe
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.adminForm1h.resources
-C:\Users\Dell\Desktop\training\OP\x64\Release\OP.vcxproj.AssemblyReference.cache
-C:\Users\Dell\Desktop\training\OP\x64\Release\OP.vcxproj.SuggestedBindingRedirects.cache
-C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm2.resources
+C:\Users\abdel\Desktop\training\OP\x64\Release\OP.passenger.resources

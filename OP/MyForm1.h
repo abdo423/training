@@ -173,7 +173,7 @@
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(43, 284);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(90, 23);
+			this->label3->Size = System::Drawing::Size(95, 24);
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"Password";
 			// 
@@ -185,7 +185,7 @@
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(43, 183);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(57, 23);
+			this->label2->Size = System::Drawing::Size(58, 24);
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"Email";
 			// 
@@ -209,7 +209,6 @@
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 22;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm1::pictureBox1_Click);
 			// 
 			// MyForm1
 			// 
@@ -254,7 +253,7 @@ private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e)
 	String^ folderPath = Application::StartupPath;
 	folderPath += "\\images\\";
 	String^ fileName = "train.jpg";
-	String^ pathString = System::IO::Path::Combine(folderPath, fileName);
+	//String^ pathString = System::IO::Path::Combine(folderPath, fileName);
 	pictureBox1->Image = Image::FromFile(folderPath + fileName);
 	this->ActiveControl = textBox_username;
 }
@@ -266,8 +265,6 @@ private: System::Void textBox_username_KeyDown_1(System::Object^ sender, System:
 private: System::Void textBox_password_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 	if (e->KeyCode == Keys::Enter)
 		Sign->PerformClick();
-}
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

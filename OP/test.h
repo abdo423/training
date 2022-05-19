@@ -1,7 +1,9 @@
 #pragma once
 #include <stdlib.h>
+
 #include <msclr/marshal_cppstd.h>
 #include <vector>
+
 #include <iostream>
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
@@ -25,7 +27,8 @@ using namespace System;
 		int countRowTable(string query);
 		ResultSet* dbGet(string query);
 		bool dbCompare(string email,string pass,string query);
-		void email_insert(string email, string password);
+		ResultSet* dbRetrieve();
+	  void email_insert(string email, string password);
 		bool login(string email, string password);
 		~test();
 	
