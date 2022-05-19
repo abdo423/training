@@ -1,8 +1,8 @@
-﻿#include "MyForm2.h"
+﻿#pragma once
 #include "adminForm1h.h"
 #include "MyForm1.h"
+#include "passenger.h"
 #include <msclr/marshal_cppstd.h>
-
 
 
 namespace OP {
@@ -299,13 +299,11 @@ namespace OP {
 			if (p)
 			{
 				this->Hide();
-				MyForm2^ h = gcnew MyForm2();
+				passenger^ h = gcnew passenger();
 				h->ShowDialog();
 				textBox_username->Clear();
 				textBox_password->Clear();
 				this->Show();
-
-			
 			}
 			else
 			{
