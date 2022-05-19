@@ -11,8 +11,8 @@ trains::trains()
 	this->train_number = "";
 	this->boarding_point = "";
 	this->destination_point = "";
-	this->no_seats = "";
-	this->ticket_price = "";
+	this->no_seats = 0;
+	this->ticket_price = 0;
 	this->DateOfTravel = "";
 	this->TimeOfTravel = "";
 
@@ -23,8 +23,8 @@ trains::trains(string train_name, string train_number, string boarding_point, st
 	this->train_number = train_number;
 	this->boarding_point = boarding_point;
 	this->destination_point = destination_point;
-	this->no_seats = no_seats;
-	this->ticket_price = ticket_price;
+	this->no_seats = stoi(no_seats);
+	this->ticket_price = stoi(ticket_price);
 	this->DateOfTravel = DateOfTravel;
 	this->TimeOfTravel = TimeOfTravel;
 

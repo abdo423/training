@@ -1,4 +1,10 @@
-﻿  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  MyForm.cpp
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(255,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(307,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  adminForm1h.cpp
+  trains.cpp
+  Generating Code...
+  admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_util.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_util.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info

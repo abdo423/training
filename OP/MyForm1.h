@@ -253,8 +253,8 @@ private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 	String^ folderPath = Application::StartupPath;
 	folderPath += "\\images\\";
-	String^ fileName = "admin.jpg";
-	//String^ pathString = System::IO::Path::Combine(folderPath, fileName);
+	String^ fileName = "train.jpg";
+	String^ pathString = System::IO::Path::Combine(folderPath, fileName);
 	pictureBox1->Image = Image::FromFile(folderPath + fileName);
 	this->ActiveControl = textBox_username;
 }

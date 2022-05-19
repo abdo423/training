@@ -41,3 +41,4 @@ C:\Users\Abdelrahman Hamdy\Desktop\GG\OP\x64\Release\OP.exe
 C:\Users\abdel\Desktop\training\OP\x64\Release\OP.adminForm1h.resources
 C:\Users\Dell\Desktop\training\OP\x64\Release\OP.vcxproj.AssemblyReference.cache
 C:\Users\Dell\Desktop\training\OP\x64\Release\OP.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\abdel\Desktop\training\OP\x64\Release\OP.MyForm2.resources

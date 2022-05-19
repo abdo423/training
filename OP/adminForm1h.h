@@ -32,7 +32,9 @@ namespace OP {
 		{
 			
 			InitializeComponent();
+			obj.loadTrains();
 			fillCombo();
+			
 			textBox7->Text = "2000-00-00";
 			textBox8->Text = "00:00";
 			//
@@ -514,7 +516,7 @@ namespace OP {
 			this->button2->TabIndex = 12;
 			this->button2->Text = L"X";
 			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &adminForm1h::button2_Click_1);
+			this->button2->Click += gcnew System::EventHandler(this, &adminForm1h::button2_Click);
 			// 
 			// textBox8
 			// 
@@ -605,36 +607,85 @@ namespace OP {
 			textBox2->Enabled = true;
 			fillCombo();
 		}
+		bool checkDate() {
+			string date = msclr::interop::marshal_as<std::string>(textBox7->Text);
+			//0123-56-89
+			if (date.size() == 10 && date[4] == '-' && date[7] == '-')
+			{
+				string month;
+				month.push_back(date[5]);
+				month.push_back(date[6]);
+				int M = stoi(month);
+				string day;
+				day.push_back(date[8]);
+				day.push_back(date[9]);
+				int D = stoi(day);
+				//1 3 5 7 8 10 12 ,31
+				if (M >= 1 && M <= 12 && D >= 1) {
+					if ((M == 1 || M == 3 || M == 5 || M == 7 || M == 8 || M == 10 || M == 12) && D <= 31)
+						return 1;
+					else if ((M == 4 || M == 6 || M == 9 || M == 11) && D <= 30)
+						return 1;
+					else if ((M == 2) && D <= 29)
+						return 1;
+					else
+						return 0;
+				}
+				else
+					return 0;
+			}
+			else
+				return 0;
+		}
 
 
-		//bool checkingForNo_Train(int s) {
-		//	bool check = false;
 
-		//	for (int i = 0; i < obj.v2_Num_Train.size(); i++)
-		//	{
-		//		if (obj.admin.size() == s)
-		//		{
-		//			check = true;
-		//			break;
-		//		}
-		//	}
-		//	return check;
-		//}
+		bool checkTime() {
+			string time = msclr::interop::marshal_as<std::string>(textBox8->Text);
+
+			if (time.size() == 5 && time[2] == ':')
+			{
+
+				string Hour;
+				Hour.push_back(time[0]);
+				Hour.push_back(time[1]);
+				int H = stoi(Hour);
+				string minute;
+				minute.push_back(time[3]);
+				minute.push_back(time[4]);
+				int M = stoi(minute);
+				if (H >= 0 && H < 24 && M >= 0 && M < 60)
+					return 1;
+				else
+					return 0;
+			}
+			else
+				return 0;
+		}
 
 
 
 		void delet() { // func to delete row
-			if (last_train_viewed == textBox2->Text) 
-				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
-					MessageBox::Show("There should be no nulls !");
-					return;
-				}
-				else if (textBox3->Text == textBox4->Text)
-				{
-					MessageBox::Show("bording point and destination point is the same");
-					textBox4->Text = "";
-					return;
-				}
+			
+				if (last_train_viewed == textBox2->Text)
+					if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
+						MessageBox::Show("There should be no nulls !");
+						return;
+					}
+					else if (textBox3->Text == textBox4->Text)
+					{
+						MessageBox::Show("bording point and destination point is the same");
+						textBox4->Text = "";
+						return;
+					}
+					else if (checkDate() == 0) {
+						MessageBox::Show("Please , Enter  Date of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						textBox7->Text = "****-**-**";
+					}
+					else if (checkTime() == 0) {
+						MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						textBox8->Text = "..:..";
+					}
 				else {
 					string del = msclr::interop::marshal_as<std::string>(textBox2->Text);
 					obj.deletRow(del);
@@ -658,7 +709,14 @@ namespace OP {
 
 			else if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "")
 				MessageBox::Show("There should be no nulls !", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-
+			else if (checkDate() == 0) {
+				MessageBox::Show("Please , Enter  Date of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox7->Text = "****-**-**";
+			}
+			else if (checkTime() == 0) {
+				MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox8->Text = "..:..";
+			}
 			else if (textBox3->Text == textBox4->Text)
 			{
 				MessageBox::Show("bording point and destination point is the same");
@@ -689,8 +747,8 @@ namespace OP {
 				   textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
 				   textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].boarding_point);
 				   textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].destination_point);
-				   textBox5->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].no_seats);
-				   textBox6->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].ticket_price);
+				   textBox5->Text = msclr::interop::marshal_as<System::String^>(to_string(obj.adminTrains[i].no_seats));
+				   textBox6->Text = msclr::interop::marshal_as<System::String^>(to_string(obj.adminTrains[i].ticket_price));
 				   textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].DateOfTravel);
 				   textBox8->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].TimeOfTravel);
 				   last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
@@ -752,6 +810,14 @@ namespace OP {
 					MessageBox::Show("bording point and destination point is the same");
 					textBox4->Text = "";
 					return;
+				}
+				else if (checkDate() == 0) {
+					MessageBox::Show("Please , Enter  Date of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox7->Text = "****-**-**";
+				}
+				else if (checkTime() == 0) {
+					MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox8->Text = "..:..";
 				}
 				if (MessageBox::Show("Are You sure to Update the data of admin's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
@@ -852,15 +918,15 @@ namespace OP {
 	}
 
 
-	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
-		obj.deletDB();  //deleting old rows in data base
-		
-		obj.insertDB();  //adding new rows in data base
-
-		this->Close();
-	}
 private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	obj.deletDB();  //deleting old rows in data base
+
+	obj.insertDB();  //adding new rows in data base
+
+	this->Close();
 }
 };
 }

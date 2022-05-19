@@ -1,9 +1,7 @@
 #pragma once
 #include <stdlib.h>
-
 #include <msclr/marshal_cppstd.h>
 #include <vector>
-
 #include <iostream>
 #include "mysql_connection.h"
 #include <cppconn/driver.h>
