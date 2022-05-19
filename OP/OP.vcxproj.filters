@@ -27,13 +27,19 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="trains.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="admin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="passenger.cpp">
+    <ClCompile Include="passeneger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ticket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,13 +56,19 @@
     <ClInclude Include="adminForm1h.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="trains.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="admin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="passenger.h">
+    <ClInclude Include="passeneger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ticket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyForm2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
