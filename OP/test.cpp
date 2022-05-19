@@ -3,6 +3,13 @@
 #include<string>
 using namespace System;
 
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+using namespace System::Data::SqlClient;
  test::test()
 {
 	try
@@ -13,7 +20,7 @@ using namespace System;
 	}
 	catch (SQLException e)
 	{
-		cout << "Could not connect to server. Error message: " << e.what() << endl;
+		MessageBox::Show(gcnew String(e.what()));
 		system("pause");
 		exit(1);
 	}
@@ -105,19 +112,4 @@ bool test::login(string email, string password)
 
 test::~test() {
 	delete con;
-}
-ResultSet* test::dbRetrieve() {
-	try {
-		ResultSet* result;
-		PreparedStatement* pstmt;
-		pstmt = con->prepareStatement("select * from passenger");
-		result = pstmt->executeQuery();
-		return result;
-		delete result;
-		delete pstmt;
-
-	}
-	catch (SQLException e) {
-		cout << e.what() << endl;
-	}
 }
