@@ -63,3 +63,8 @@ void passeneger::storeTicket()
 	for (int i = 0; i < tickets.size(); i++)
 		obj.dbSet("INSERT INTO `ds_trial`.`passenger` VALUES('" + tickets[i].passeneger_name + "', '" + tickets[i].boarding_point + "','" + tickets[i].destination_point + "', '" + tickets[i].date_of_travel + "')");
 }
+void passeneger::delvector() 
+{
+	tickets.clear();
+
+}

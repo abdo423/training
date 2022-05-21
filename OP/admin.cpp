@@ -62,3 +62,7 @@ void admin::insertDB() {
 	for (int i = 0; i < adminTrains.size(); i++)
 		obj.dbSet("INSERT INTO `ds_trial`.`test_train` VALUES('" + adminTrains[i].train_name + "','" + adminTrains[i].train_number + "','" + adminTrains[i].boarding_point + "','" + adminTrains[i].destination_point + "'," + to_string( adminTrains[i].no_seats) + "," + to_string(adminTrains[i].ticket_price) + ",'"+adminTrains[i].DateOfTravel+"','" + adminTrains[i].TimeOfTravel + "')");
 }
+void admin::delvector()
+{
+	adminTrains.clear();
+}

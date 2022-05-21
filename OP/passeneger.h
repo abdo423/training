@@ -13,6 +13,7 @@ public:
 	passeneger();
 	void loadTicket();
 	void storeTicket();
+	void delvector();
 	void updateTicket(string x, string y, string z, string l, string a);
 	void deletDB();
 	void addTicket(string x, string y, string z, string l);

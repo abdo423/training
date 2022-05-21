@@ -925,7 +925,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	obj.deletDB();  //deleting old rows in data base
 
 	obj.insertDB();  //adding new rows in data base
-
+	obj.delvector();
 	this->Close();
 }
 };
