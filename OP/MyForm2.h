@@ -239,6 +239,7 @@ namespace OP {
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(544, 148);
 			this->listBox1->TabIndex = 16;
+			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm2::listBox1_SelectedIndexChanged);
 			// 
 			// comboBox1
 			// 
@@ -393,6 +394,7 @@ private: System::Void textBox5_TextChanged(System::Object^ sender, System::Event
 
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	listBox1->Items->Clear();
+	int check = 0;
 	if (comboBox1->Text == "" || comboBox2->Text == "" || textBox4->Text == "") 
 	{
 		MessageBox::Show("Enter the boarding point,destination point and Date ");
@@ -402,16 +404,18 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	{
 		for (int i = 0; i < A.adminTrains.size(); i++)
 		{
-			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point))&&  (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)))
+			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) && (A.adminTrains[i].no_people < A.adminTrains[i].no_seats))
 			{
 				string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
-				
 				listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
+				check = 1;
 			}
 		}
-		
-
 	}
+	if (check == 0)
+		listBox1->Items->Add(" no trains available");
+}
+private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

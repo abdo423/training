@@ -35,7 +35,7 @@ namespace OP {
 			obj.loadTrains();
 			fillCombo();
 			
-			textBox7->Text = "2000-00-00";
+			textBox7->Text = "2022-01-01";
 			textBox8->Text = "00:00";
 			//
 			//TODO: Add the constructor code here
@@ -103,6 +103,7 @@ namespace OP {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::Label^ label8;
+
 
 
 
@@ -192,6 +193,7 @@ namespace OP {
 			// 
 			// panel3
 			// 
+			this->panel3->BackColor = System::Drawing::Color::Transparent;
 			this->panel3->Controls->Add(this->pictureBox4);
 			this->panel3->Controls->Add(this->button5);
 			this->panel3->Location = System::Drawing::Point(955, 641);
@@ -225,6 +227,7 @@ namespace OP {
 			// 
 			// panel4
 			// 
+			this->panel4->BackColor = System::Drawing::Color::Transparent;
 			this->panel4->Controls->Add(this->pictureBox2);
 			this->panel4->Controls->Add(this->button6);
 			this->panel4->Location = System::Drawing::Point(485, 641);
@@ -258,6 +261,7 @@ namespace OP {
 			// 
 			// panel2
 			// 
+			this->panel2->BackColor = System::Drawing::Color::Transparent;
 			this->panel2->Controls->Add(this->pictureBox5);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Location = System::Drawing::Point(5, 641);
@@ -276,8 +280,10 @@ namespace OP {
 			// 
 			// label1
 			// 
+			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Transparent;
 			this->label1->Location = System::Drawing::Point(68, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(172, 35);
@@ -286,8 +292,10 @@ namespace OP {
 			// 
 			// label2
 			// 
+			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::Transparent;
 			this->label2->Location = System::Drawing::Point(59, 109);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(226, 35);
@@ -296,8 +304,10 @@ namespace OP {
 			// 
 			// label3
 			// 
+			this->label3->BackColor = System::Drawing::Color::Transparent;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::Transparent;
 			this->label3->Location = System::Drawing::Point(68, 191);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(227, 35);
@@ -306,8 +316,10 @@ namespace OP {
 			// 
 			// label4
 			// 
+			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::Transparent;
 			this->label4->Location = System::Drawing::Point(68, 263);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(227, 35);
@@ -316,8 +328,10 @@ namespace OP {
 			// 
 			// label5
 			// 
+			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::Transparent;
 			this->label5->Location = System::Drawing::Point(68, 338);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(227, 35);
@@ -326,8 +340,10 @@ namespace OP {
 			// 
 			// label6
 			// 
+			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::Transparent;
 			this->label6->Location = System::Drawing::Point(68, 400);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(227, 35);
@@ -336,8 +352,10 @@ namespace OP {
 			// 
 			// label7
 			// 
+			this->label7->BackColor = System::Drawing::Color::Transparent;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label7->ForeColor = System::Drawing::Color::Transparent;
 			this->label7->Location = System::Drawing::Point(68, 481);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(227, 35);
@@ -431,6 +449,7 @@ namespace OP {
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::Transparent;
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Location = System::Drawing::Point(741, 648);
@@ -449,6 +468,7 @@ namespace OP {
 			// 
 			// panel5
 			// 
+			this->panel5->BackColor = System::Drawing::Color::Transparent;
 			this->panel5->Controls->Add(this->pictureBox3);
 			this->panel5->Controls->Add(this->button4);
 			this->panel5->Location = System::Drawing::Point(240, 648);
@@ -493,6 +513,7 @@ namespace OP {
 			// 
 			// label9
 			// 
+			this->label9->BackColor = System::Drawing::Color::Transparent;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Uighur", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label9->Location = System::Drawing::Point(848, 80);
@@ -510,7 +531,7 @@ namespace OP {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(1159, 16);
+			this->button2->Location = System::Drawing::Point(1172, 0);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(64, 47);
 			this->button2->TabIndex = 12;
@@ -530,8 +551,10 @@ namespace OP {
 			// 
 			// label8
 			// 
+			this->label8->BackColor = System::Drawing::Color::Transparent;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::Transparent;
 			this->label8->Location = System::Drawing::Point(68, 550);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(227, 35);
@@ -543,9 +566,9 @@ namespace OP {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
-			this->BackColor = System::Drawing::Color::Wheat;
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->ClientSize = System::Drawing::Size(1235, 808);
+			this->BackColor = System::Drawing::Color::NavajoWhite;
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(1235, 733);
 			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->button2);
@@ -590,8 +613,8 @@ namespace OP {
 		}
 #pragma endregion
 		int loopInVeiwData = 0;
-		String^ last_train_viewed = "";
-		
+		int last_train_viewed = 0;
+		int no_people = 0;
 
 		void clear() { // func to make text boxs empty
 			textBox1->Clear();
@@ -600,10 +623,11 @@ namespace OP {
 			textBox4->Text = "";
 			textBox5->Text = "";
 			textBox6->Text = "";
-			textBox7->Text = "2000-00-00";
+			textBox7->Text = "2022-01-01";
 			textBox8->Text = "00:00";
-			last_train_viewed = "";
+			last_train_viewed = 0;
 			comboBox1->Text = "";
+			no_people = 0;
 			textBox2->Enabled = true;
 			fillCombo();
 		}
@@ -667,7 +691,7 @@ namespace OP {
 
 		void delet() { // func to delete row
 			
-				if (last_train_viewed == textBox2->Text)
+				if (msclr::interop::marshal_as<System::String^>(obj.adminTrains[last_train_viewed].train_number) == textBox2->Text)
 					if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
 						MessageBox::Show("There should be no nulls !");
 						return;
@@ -688,7 +712,8 @@ namespace OP {
 					}
 				else {
 					string del = msclr::interop::marshal_as<std::string>(textBox2->Text);
-					obj.deletRow(del);
+					no_people = obj.deletRow(del);
+					
 				}
 		}
 
@@ -724,7 +749,7 @@ namespace OP {
 
 			}
 			else {
-				obj.AddRow(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text), msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text));
+				obj.AddRow(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text), msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text) , no_people);
 				clear();
 			}
 			
@@ -751,7 +776,7 @@ namespace OP {
 				   textBox6->Text = msclr::interop::marshal_as<System::String^>(to_string(obj.adminTrains[i].ticket_price));
 				   textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].DateOfTravel);
 				   textBox8->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].TimeOfTravel);
-				   last_train_viewed = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
+				   last_train_viewed = i;
 			
 		   }
 
@@ -800,7 +825,7 @@ namespace OP {
 		string s = msclr::interop::marshal_as<std::string>(textBox2->Text);
 		if (obj.checkingForNo_Train(s) == 1) {
 
-			if (last_train_viewed == textBox2->Text) {
+			if (msclr::interop::marshal_as<System::String^>(obj.adminTrains[last_train_viewed].train_number) == textBox2->Text) {
 				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
 					MessageBox::Show("There should be no nulls !");
 					return;
@@ -819,12 +844,14 @@ namespace OP {
 					MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					textBox8->Text = "..:..";
 				}
-				if (MessageBox::Show("Are You sure to Update the data of admin's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
+				else if (obj.adminTrains[last_train_viewed].no_people > stoi(msclr::interop::marshal_as<std::string>(textBox5->Text))) {
+					MessageBox::Show("The number of reservations is greater than the new No.Seat", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox5->Text = "!!!!!";
+				}else if(MessageBox::Show("Are You sure to Update the data of admin's number is ( " + textBox2->Text + " )", "warning", MessageBoxButtons::OKCancel, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::OK) {
 					delet();
 					add();
 				}
-			}
-			else
+			}else
 				MessageBox::Show("sorry , You can't Update data of this admin .");
 			clear();
 		}
@@ -848,6 +875,10 @@ namespace OP {
 		pictureBox4->Image = Image::FromFile(folderPath + fileName);
 		fileName = "Update.png";
 		pictureBox2->Image = Image::FromFile(folderPath + fileName);
+		fileName = "adminForm3.jpg";
+		BackgroundImage = Image::FromFile(folderPath + fileName);
+		
+		
 		this->ActiveControl = textBox1;
 	}
 

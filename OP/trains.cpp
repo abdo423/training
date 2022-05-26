@@ -15,9 +15,9 @@ trains::trains()
 	this->ticket_price = 0;
 	this->DateOfTravel = "";
 	this->TimeOfTravel = "";
-
+	this->no_people = 0;
 }
-trains::trains(string train_name, string train_number, string boarding_point, string destination_point, string no_seats, string ticket_price, string DateOfTravel, string TimeOfTravel)
+trains::trains(string train_name, string train_number, string boarding_point, string destination_point, string no_seats, string ticket_price, string DateOfTravel, string TimeOfTravel, int no_people)
 {
 	this->train_name = train_name;
 	this->train_number = train_number;
@@ -27,6 +27,7 @@ trains::trains(string train_name, string train_number, string boarding_point, st
 	this->ticket_price = stoi(ticket_price);
 	this->DateOfTravel = DateOfTravel;
 	this->TimeOfTravel = TimeOfTravel;
+	this->no_people = no_people;
 
 }
  

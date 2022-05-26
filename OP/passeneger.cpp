@@ -56,12 +56,12 @@ void passeneger::updateTicket(string name, string boarding, string destination, 
 
 }
 void passeneger::deletDB() {
-	obj.dbSet("DELETE FROM `ds_trial`.`passenger` WHERE( `passeneger_name` IS NOT NULL )");
+	obj.dbSet("DELETE FROM `tsts`.`passenger` WHERE( `passeneger_name` IS NOT NULL )");
 }
 void passeneger::storeTicket()
 {
 	for (int i = 0; i < tickets.size(); i++)
-		obj.dbSet("INSERT INTO `ds_trial`.`passenger` VALUES('" + tickets[i].passeneger_name + "', '" + tickets[i].boarding_point + "','" + tickets[i].destination_point + "', '" + tickets[i].date_of_travel + "')");
+		obj.dbSet("INSERT INTO `tsts`.`passenger` VALUES('" + tickets[i].passeneger_name + "', '" + tickets[i].boarding_point + "','" + tickets[i].destination_point + "', '" + tickets[i].date_of_travel + "')");
 }
 void passeneger::delvector() 
 {

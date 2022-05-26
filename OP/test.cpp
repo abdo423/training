@@ -16,7 +16,7 @@ using namespace System::Data::SqlClient;
 	{
 		driver = get_driver_instance();
 		con = driver->connect(server, username, password);
-		con->setSchema("ds_trial");
+		con->setSchema("tsts");
 	}
 	catch (SQLException e)
 	{
