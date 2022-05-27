@@ -3,7 +3,8 @@
 #include <msclr/marshal_cppstd.h>
 #include<vector>
 #include"admin.h"
-static admin obj =admin();
+#include"test.h"
+static admin obj = admin();
 
 using namespace std;
 
@@ -32,6 +33,7 @@ namespace OP {
 		{
 			
 			InitializeComponent();
+			loadCities();
 			obj.loadTrains();
 			fillCombo();
 			
@@ -82,8 +84,8 @@ namespace OP {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox4;
+
+
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::TextBox^ textBox7;
@@ -103,6 +105,8 @@ namespace OP {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
+	private: System::Windows::Forms::ComboBox^ comboBox4;
 
 
 
@@ -148,8 +152,6 @@ namespace OP {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
@@ -164,6 +166,8 @@ namespace OP {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->panel4->SuspendLayout();
@@ -382,26 +386,6 @@ namespace OP {
 			this->textBox2->TabIndex = 19;
 			this->textBox2->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox2_KeyDown);
 			// 
-			// textBox3
-			// 
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(291, 188);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(425, 34);
-			this->textBox3->TabIndex = 20;
-			this->textBox3->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox3_KeyDown);
-			// 
-			// textBox4
-			// 
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(291, 260);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(425, 34);
-			this->textBox4->TabIndex = 21;
-			this->textBox4->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::textBox4_KeyDown);
-			// 
 			// textBox5
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -561,6 +545,28 @@ namespace OP {
 			this->label8->TabIndex = 29;
 			this->label8->Text = L"Time of travel : ";
 			// 
+			// comboBox3
+			// 
+			this->comboBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Location = System::Drawing::Point(291, 188);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(425, 37);
+			this->comboBox3->TabIndex = 32;
+			this->comboBox3->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::comboBox3_KeyDown_1);
+			// 
+			// comboBox4
+			// 
+			this->comboBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboBox4->FormattingEnabled = true;
+			this->comboBox4->Location = System::Drawing::Point(291, 263);
+			this->comboBox4->Name = L"comboBox4";
+			this->comboBox4->Size = System::Drawing::Size(425, 37);
+			this->comboBox4->TabIndex = 33;
+			this->comboBox4->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &adminForm1h::comboBox4_KeyDown_1);
+			// 
 			// adminForm1h
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -569,6 +575,8 @@ namespace OP {
 			this->BackColor = System::Drawing::Color::NavajoWhite;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1235, 733);
+			this->Controls->Add(this->comboBox4);
+			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->button2);
@@ -582,8 +590,6 @@ namespace OP {
 			this->Controls->Add(this->panel4);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->panel2);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label7);
@@ -616,11 +622,21 @@ namespace OP {
 		int last_train_viewed = 0;
 		int no_people = 0;
 
+		void loadCities() {
+			test t;
+			ResultSet* result = t.dbGet("select * from egypt");
+			while (result->next()) {
+				string s = result->getString(1).c_str();
+				comboBox3->Items->Add(msclr::interop::marshal_as<System::String^>(s));
+				comboBox4->Items->Add(msclr::interop::marshal_as<System::String^>(s));
+			}
+		}
+
 		void clear() { // func to make text boxs empty
 			textBox1->Clear();
 			textBox2->Text = "";
-			textBox3->Text = "";
-			textBox4->Text = "";
+			comboBox3->Text = "";
+			comboBox4->Text = "";
 			textBox5->Text = "";
 			textBox6->Text = "";
 			textBox7->Text = "2022-01-01";
@@ -631,6 +647,68 @@ namespace OP {
 			textBox2->Enabled = true;
 			fillCombo();
 		}
+
+
+		bool checkDateWithlocalDate(string date, string timing) {
+			//string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
+		   //0123-56-89
+			time_t ttime = time(0);
+			tm* local_time = localtime(&ttime);
+
+			string Year;
+			Year.push_back(date[0]);
+			Year.push_back(date[1]);
+			Year.push_back(date[2]);
+			Year.push_back(date[3]);
+			int Y = stoi(Year);
+
+			if (!(1900 + local_time->tm_year <= Y))
+				return 0;
+			string month;
+			month.push_back(date[5]);
+			month.push_back(date[6]);
+			int M = stoi(month);
+			if (!(1 + local_time->tm_mon <= M))
+				return 0;
+
+			string day;
+			day.push_back(date[8]);
+			day.push_back(date[9]);
+			int D = stoi(day);
+			if (!(local_time->tm_mday <= D))
+				return 0;
+
+			if (timing != "notime" && local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
+				return checkTimeWithlocalTime(timing);
+
+			return 1;
+		}
+
+		bool checkTimeWithlocalTime(string timeing) {
+
+			time_t ttime = time(0);
+			tm* local_time = localtime(&ttime);
+
+			string Hour;
+			Hour.push_back(timeing[0]);
+			Hour.push_back(timeing[1]);
+			int H = stoi(Hour);
+
+			if (!(local_time->tm_hour <= H))
+				return 0;
+
+			string minute;
+			minute.push_back(timeing[3]);
+			minute.push_back(timeing[4]);
+			int M = stoi(minute);
+			if (!(local_time->tm_min <= M))
+				return 0;
+
+			return 1;
+
+		}
+
+
 		bool checkDate() {
 			string date = msclr::interop::marshal_as<std::string>(textBox7->Text);
 			//0123-56-89
@@ -692,14 +770,14 @@ namespace OP {
 		void delet() { // func to delete row
 			
 				if (msclr::interop::marshal_as<System::String^>(obj.adminTrains[last_train_viewed].train_number) == textBox2->Text)
-					if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
+					if (textBox1->Text == "" || textBox2->Text == "" || comboBox3->Text == "" || comboBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
 						MessageBox::Show("There should be no nulls !");
 						return;
 					}
-					else if (textBox3->Text == textBox4->Text)
+					else if (comboBox3->Text == comboBox4->Text)
 					{
 						MessageBox::Show("bording point and destination point is the same");
-						textBox4->Text = "";
+						comboBox4->Text = "";
 						return;
 					}
 					else if (checkDate() == 0) {
@@ -731,8 +809,8 @@ namespace OP {
 
 			if (check && MessageBox::Show("this ' Number of Train ' already exist in data base", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error) == System::Windows::Forms::DialogResult::OK)
 				textBox2->Text = "????????????";
-
-			else if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "")
+			
+			else if (textBox1->Text == "" || textBox2->Text == "" || comboBox3->Text == "" || comboBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "")
 				MessageBox::Show("There should be no nulls !", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			else if (checkDate() == 0) {
 				MessageBox::Show("Please , Enter  Date of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -742,14 +820,19 @@ namespace OP {
 				MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				textBox8->Text = "..:..";
 			}
-			else if (textBox3->Text == textBox4->Text)
+			else if (comboBox3->Text == comboBox4->Text)
 			{
 				MessageBox::Show("bording point and destination point is the same");
-				textBox4->Text = "";
+				comboBox4->Text = "";
 
 			}
+			else if (checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text)) == 0) {
+				MessageBox::Show("this Data or time is old !! ", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox7->Text = "****-**-**"; 
+				textBox8->Text = "..:..";
+			}
 			else {
-				obj.AddRow(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text), msclr::interop::marshal_as<std::string>(textBox3->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text) , no_people);
+				obj.AddRow(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(textBox2->Text), msclr::interop::marshal_as<std::string>(comboBox3->Text), msclr::interop::marshal_as<std::string>(comboBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text), msclr::interop::marshal_as<std::string>(textBox6->Text), msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text) , no_people);
 				clear();
 			}
 			
@@ -770,8 +853,8 @@ namespace OP {
 			  
 				   textBox1->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_name);
 				   textBox2->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].train_number);
-				   textBox3->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].boarding_point);
-				   textBox4->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].destination_point);
+				   comboBox3->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].boarding_point);
+				   comboBox4->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].destination_point);
 				   textBox5->Text = msclr::interop::marshal_as<System::String^>(to_string(obj.adminTrains[i].no_seats));
 				   textBox6->Text = msclr::interop::marshal_as<System::String^>(to_string(obj.adminTrains[i].ticket_price));
 				   textBox7->Text = msclr::interop::marshal_as<System::String^>(obj.adminTrains[i].DateOfTravel);
@@ -826,14 +909,14 @@ namespace OP {
 		if (obj.checkingForNo_Train(s) == 1) {
 
 			if (msclr::interop::marshal_as<System::String^>(obj.adminTrains[last_train_viewed].train_number) == textBox2->Text) {
-				if (textBox1->Text == "" || textBox2->Text == "" || textBox3->Text == "" || textBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
+				if (textBox1->Text == "" || textBox2->Text == "" || comboBox3->Text == "" || comboBox4->Text == "" || textBox5->Text == "" || textBox6->Text == "" || textBox7->Text == "" || textBox8->Text == "") {
 					MessageBox::Show("There should be no nulls !");
 					return;
 				}
-				else if (textBox3->Text == textBox4->Text)
+				else if (comboBox3->Text == comboBox4->Text)
 				{
 					MessageBox::Show("bording point and destination point is the same");
-					textBox4->Text = "";
+					comboBox4->Text = "";
 					return;
 				}
 				else if (checkDate() == 0) {
@@ -842,6 +925,11 @@ namespace OP {
 				}
 				else if (checkTime() == 0) {
 					MessageBox::Show("Please , Enter  Time of travel correctly .", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox8->Text = "..:..";
+				}
+				else if (checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox7->Text), msclr::interop::marshal_as<std::string>(textBox8->Text)) == 0) {
+					MessageBox::Show("this Data or time is old !! ", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox7->Text = "****-**-**";
 					textBox8->Text = "..:..";
 				}
 				else if (obj.adminTrains[last_train_viewed].no_people > stoi(msclr::interop::marshal_as<std::string>(textBox5->Text))) {
@@ -891,21 +979,22 @@ namespace OP {
 
 	private: System::Void textBox2_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
-			textBox3->Select();
+			comboBox3->Select();
 	}
 
 
-	private: System::Void textBox3_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	
+	private: System::Void comboBox3_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
-			textBox4->Select();
+			comboBox4->Select();
 	}
 
+	
 
-	private: System::Void textBox4_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	private: System::Void comboBox4_KeyDown_1(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
 			textBox5->Select();
 	}
-
 
 	private: System::Void textBox5_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
@@ -959,5 +1048,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	obj.delvector();
 	this->Close();
 }
+
+
 };
 }

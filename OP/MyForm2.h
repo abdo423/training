@@ -2,6 +2,7 @@
 #include"passeneger.h"
 #include"test.h"
 #include<string>
+#include <ctime>
 #include"admin.h"
 using namespace std;
 static passeneger p;
@@ -125,7 +126,6 @@ namespace OP {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(333, 41);
 			this->textBox5->TabIndex = 5;
-			this->textBox5->TextChanged += gcnew System::EventHandler(this, &MyForm2::textBox5_TextChanged);
 			// 
 			// label1
 			// 
@@ -239,7 +239,6 @@ namespace OP {
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(544, 148);
 			this->listBox1->TabIndex = 16;
-			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm2::listBox1_SelectedIndexChanged);
 			// 
 			// comboBox1
 			// 
@@ -387,10 +386,97 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	
 	
 }
-private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
 
 
+	   bool checkDateWithlocalDate(string date , string timing) {
+		    //string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
+		   //0123-56-89
+		   time_t ttime = time(0);
+		   tm* local_time = localtime(&ttime);
+
+		   string Year;
+		   Year.push_back(date[0]);
+		   Year.push_back(date[1]);
+		   Year.push_back(date[2]);
+		   Year.push_back(date[3]);
+		   int Y = stoi(Year);
+
+		   if (!(1900 + local_time->tm_year <= Y))
+			   return 0;
+			   string month;
+			   month.push_back(date[5]);
+			   month.push_back(date[6]);
+			   int M = stoi(month);
+			   if (!(1 + local_time->tm_mon <= M))
+				   return 0;
+
+			   string day;
+			   day.push_back(date[8]);
+			   day.push_back(date[9]);
+			   int D = stoi(day);
+			   if (!(local_time->tm_mday <= D))
+				   return 0;
+
+			   if(timing!="notime" && local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
+			   return checkTimeWithlocalTime(timing);
+
+			   return 1;
+	   }
+
+	   bool checkTimeWithlocalTime(string timeing) {
+
+		   time_t ttime = time(0);
+		   tm* local_time = localtime(&ttime);
+
+			   string Hour;
+			   Hour.push_back(timeing[0]);
+			   Hour.push_back(timeing[1]);
+			   int H = stoi(Hour);
+
+			   if (!( local_time->tm_hour <= H))
+				   return 0 ;
+
+			   string minute;
+			   minute.push_back(timeing[3]);
+			   minute.push_back(timeing[4]);
+			   int M = stoi(minute);
+			   if (!( local_time->tm_min <= M))
+				   return 0;
+
+			   return 1;
+		  
+	   }
+
+	   bool checkDate() {
+		   string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
+		   //0123-56-89
+		   if (date.size() == 10 && date[4] == '-' && date[7] == '-')
+		   {
+			   string month;
+			   month.push_back(date[5]);
+			   month.push_back(date[6]);
+			   int M = stoi(month);
+			   string day;
+			   day.push_back(date[8]);
+			   day.push_back(date[9]);
+			   int D = stoi(day);
+			   //1 3 5 7 8 10 12 ,31
+			   if (M >= 1 && M <= 12 && D >= 1) {
+				   if ((M == 1 || M == 3 || M == 5 || M == 7 || M == 8 || M == 10 || M == 12) && D <= 31)
+					   return 1;
+				   else if ((M == 4 || M == 6 || M == 9 || M == 11) && D <= 30)
+					   return 1;
+				   else if ((M == 2) && D <= 29)
+					   return 1;
+				   else
+					   return 0;
+			   }
+			   else
+				   return 0;
+		   }
+		   else
+			   return 0;
+	   }
 
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	listBox1->Items->Clear();
@@ -400,22 +486,27 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Enter the boarding point,destination point and Date ");
 
 	}
+	else if (checkDate() == 0 || checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox4->Text), "notime") == 0  ){
+		MessageBox::Show("Enter the Date correctly ");
+	}
 	else 
 	{
 		for (int i = 0; i < A.adminTrains.size(); i++)
 		{
 			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) && (A.adminTrains[i].no_people < A.adminTrains[i].no_seats))
 			{
-				string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
-				listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
-				check = 1;
+				
+				if (checkDateWithlocalDate(A.adminTrains[i].DateOfTravel , A.adminTrains[i].TimeOfTravel) == 1 ) {
+					string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
+					listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
+					check = 1;
+				}
 			}
 		}
 	}
 	if (check == 0)
 		listBox1->Items->Add(" no trains available");
 }
-private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
 };
 }
