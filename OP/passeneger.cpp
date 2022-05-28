@@ -19,7 +19,7 @@ void passeneger::loadTicket()
 	result=obj.dbGet("select *from passenger");
 	while (result->next())
 	{
-		ticket t = ticket(result->getString(1).c_str(), result->getString(2).c_str(), result->getString(3).c_str(), result->getString(4).c_str());
+		ticket t = ticket(result->getString(1).c_str(), result->getString(2).c_str(), result->getString(3).c_str(), result->getString(4).c_str(),result->getString(5).c_str());
 		tickets.push_back(t);
 	}
 	
@@ -29,9 +29,9 @@ void passeneger::loadTicket()
 
 
 
-void passeneger::addTicket(string x, string y, string z, string l)
+void passeneger::addTicket(string x, string y, string z, string l,string number_of_train)
 {
-	ticket t = ticket(x, y, z, l);
+	ticket t = ticket(x, y, z, l,number_of_train);
 	tickets.push_back(t);
 
 
@@ -61,7 +61,7 @@ void passeneger::deletDB() {
 void passeneger::storeTicket()
 {
 	for (int i = 0; i < tickets.size(); i++)
-		obj.dbSet("INSERT INTO `tsts`.`passenger` VALUES('" + tickets[i].passeneger_name + "', '" + tickets[i].boarding_point + "','" + tickets[i].destination_point + "', '" + tickets[i].date_of_travel + "')");
+		obj.dbSet("INSERT INTO `tsts`.`passenger` VALUES('" + tickets[i].passeneger_name + "', '" + tickets[i].boarding_point + "','" + tickets[i].destination_point + "', '" + tickets[i].date_of_travel + "','" + tickets[i].number_of_train + "')");
 }
 void passeneger::delvector() 
 {

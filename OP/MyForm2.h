@@ -239,6 +239,7 @@ namespace OP {
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(544, 148);
 			this->listBox1->TabIndex = 16;
+			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm2::listBox1_SelectedIndexChanged);
 			// 
 			// comboBox1
 			// 
@@ -288,6 +289,7 @@ namespace OP {
 
 		}
 #pragma endregion
+		 int bookedTrain=-1;
 		void loadCities() {
 			test t;
 			ResultSet* result = t.dbGet("select * from egypt");
@@ -369,9 +371,17 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else
 	{
+		if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+			MessageBox::Show("the train is full");
+			return;
+		}else
+		{
+			p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number);
 
-		p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text));
-		MessageBox::Show("You have inserted sucessfully");
+			MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " have a nice trip");
+			A.adminTrains[bookedTrain].no_people++;
+		}
+		
 	}
 }
 
@@ -433,8 +443,10 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 			   Hour.push_back(timeing[1]);
 			   int H = stoi(Hour);
 
-			   if (!( local_time->tm_hour <= H))
-				   return 0 ;
+			   if (local_time->tm_hour > H)
+				   return 0;
+			   else if (local_time->tm_hour < H)
+				   return 1;
 
 			   string minute;
 			   minute.push_back(timeing[3]);
@@ -493,13 +505,16 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	{
 		for (int i = 0; i < A.adminTrains.size(); i++)
 		{
-			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) && (A.adminTrains[i].no_people < A.adminTrains[i].no_seats))
+			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) )
 			{
 				
 				if (checkDateWithlocalDate(A.adminTrains[i].DateOfTravel , A.adminTrains[i].TimeOfTravel) == 1 ) {
 					string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
 					listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
 					check = 1;
+					comboBox1->Text = "";
+					comboBox2->Text = "";
+					textBox4->Text = "";
 				}
 			}
 		}
@@ -508,5 +523,21 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		listBox1->Items->Add(" no trains available");
 }
 
+private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	string s = msclr::interop::marshal_as<std::string>(listBox1->Text);
+	
+	for (int i = 0; i < A.adminTrains.size(); i++) 
+	{
+		string index = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
+
+		if (index == s) {
+			comboBox1->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point);
+			comboBox2->Text= msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point);
+			textBox4->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel);
+			bookedTrain = i;
+		}
+
+	}
+}
 };
 }

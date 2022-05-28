@@ -668,7 +668,7 @@ namespace OP {
 			month.push_back(date[5]);
 			month.push_back(date[6]);
 			int M = stoi(month);
-			if (!(1 + local_time->tm_mon <= M))
+			if (!( 1+local_time->tm_mon <= M))
 				return 0;
 
 			string day;
@@ -678,7 +678,7 @@ namespace OP {
 			if (!(local_time->tm_mday <= D))
 				return 0;
 
-			if (timing != "notime" && local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
+			if (  local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
 				return checkTimeWithlocalTime(timing);
 
 			return 1;
@@ -694,8 +694,10 @@ namespace OP {
 			Hour.push_back(timeing[1]);
 			int H = stoi(Hour);
 
-			if (!(local_time->tm_hour <= H))
+			if (local_time->tm_hour > H)
 				return 0;
+			else if (local_time->tm_hour < H)
+				return 1;
 
 			string minute;
 			minute.push_back(timeing[3]);

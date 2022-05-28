@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include"ticket.h"
 #include "test.h"
 #include <iostream>
 
@@ -12,7 +13,7 @@ class trains
 
 public:
 
-
+	vector<ticket>bookedTickets;
 	string train_name;
 	string train_number;
 	string boarding_point;
