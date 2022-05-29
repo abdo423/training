@@ -16,8 +16,11 @@ public:
 	void delvector();
 	void updateTicket(string x, string y, string z, string l, string a);
 	void deletDB();
-	void addTicket(string x, string y, string z, string l,string number_of_train);
+	//void addTicket(string x, string y, string z, string l,string number_of_train);
+	void addTicket(string x, string y, string z, string l, string number_of_train, string id);
 	vector<ticket> displayTicket();
+
+	
 
 };
 

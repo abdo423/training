@@ -305,7 +305,7 @@ namespace OP {
 				textBox_password->Clear();
 				this->Show();
 
-			
+
 			}
 			else
 			{
@@ -313,23 +313,23 @@ namespace OP {
 			}
 		}
 	}
-private: System::Void textBox_username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->ActiveControl = textBox_username;
-	String^ folderPath = Application::StartupPath;
-	folderPath += "\\images\\";
-	String^ fileName = "clock.jpg";
-	pictureBox1->Image = Image::FromFile(folderPath + fileName);
+	private: System::Void textBox_username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->ActiveControl = textBox_username;
+		String^ folderPath = Application::StartupPath;
+		folderPath += "\\images\\";
+		String^ fileName = "clock.jpg";
+		pictureBox1->Image = Image::FromFile(folderPath + fileName);
 
-}
-private: System::Void textBox_username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		textBox_password->Select();
-}
-private: System::Void textBox_password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Enter)
-		Sign->PerformClick();
-}
-};
+	}
+	private: System::Void textBox_username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			textBox_password->Select();
+	}
+	private: System::Void textBox_password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+			Sign->PerformClick();
+	}
+	};
 }

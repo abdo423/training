@@ -7,6 +7,7 @@
 using namespace std;
 static passeneger p;
 static admin A = admin();
+
 namespace OP {
 
 	using namespace System;
@@ -130,11 +131,11 @@ namespace OP {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(18, 35);
+			this->label1->Location = System::Drawing::Point(108, 37);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(395, 36);
+			this->label1->Size = System::Drawing::Size(253, 36);
 			this->label1->TabIndex = 6;
-			this->label1->Text = L"enter your name to view data";
+			this->label1->Text = L"search by ticket id";
 			// 
 			// label2
 			// 
@@ -305,13 +306,13 @@ namespace OP {
 		int counter = 0;
 		for (int i = 0; i < p.tickets.size(); i++)
 		{
-			if (p.tickets[i].passeneger_name != msclr::interop::marshal_as<std::string>(textBox5->Text))
+			if (p.tickets[i].id != msclr::interop::marshal_as<std::string>(textBox5->Text))
 
 			{
 				counter++;
 			}
 
-			else if (p.tickets[i].passeneger_name == msclr::interop::marshal_as<std::string>(textBox5->Text))
+			else if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text))
 			{
 				vector <ticket> t = p.displayTicket();
 				textBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].passeneger_name);
@@ -352,7 +353,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
 	int count = p.tickets.size();
 	int counter = 0;
 	for (int i = 0; i < p.tickets.size(); i++)
@@ -371,15 +372,26 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else
 	{
-		if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
-			MessageBox::Show("the train is full");
+		if (msclr::interop::marshal_as<std::string>(listBox1->Text) == "" || "no trains available") {
+			MessageBox::Show("please select train first");
 			return;
-		}else
+		}
+	else
 		{
-			p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number);
-
-			MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " have a nice trip");
-			A.adminTrains[bookedTrain].no_people++;
+			if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+				MessageBox::Show("the train is full");
+				return;
+			}
+		
+			else
+			{
+				int	ids = p.tickets.size() + 1;
+				p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, to_string(ids));
+				MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " your tikcet id is:  " + ids + "  have a nice trip");
+				A.adminTrains[bookedTrain].no_people++;
+				listBox1->Items->Clear();
+			}
+		   
 		}
 		
 	}
@@ -398,9 +410,9 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 
 
-	   bool checkDateWithlocalDate(string date , string timing) {
-		    //string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
-		   //0123-56-89
+	   bool checkDateWithlocalDate(string date, string timing) {
+		   //string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
+		  //0123-56-89
 		   time_t ttime = time(0);
 		   tm* local_time = localtime(&ttime);
 
@@ -410,27 +422,65 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		   Year.push_back(date[2]);
 		   Year.push_back(date[3]);
 		   int Y = stoi(Year);
+		   string month;
+		   month.push_back(date[5]);
+		   month.push_back(date[6]);
+		   int M = stoi(month);
+		   string day;
+		   day.push_back(date[8]);
+		   day.push_back(date[9]);
+		   int D = stoi(day);
+		   if ((1900 + local_time->tm_year < Y)) 
+		   {
+			   return true;
+			   
+		   }
+		   else if ((1900 + local_time->tm_year > Y)) 
+		   {
+			   
+				   MessageBox::Show("year");
+				   return false;
+			  
+		   }
+		   else 
+		   {
+			   if ((1 + local_time->tm_mon < M))
+			   {
 
-		   if (!(1900 + local_time->tm_year <= Y))
-			   return 0;
-			   string month;
-			   month.push_back(date[5]);
-			   month.push_back(date[6]);
-			   int M = stoi(month);
-			   if (!(1 + local_time->tm_mon <= M))
-				   return 0;
+				   return true;
 
-			   string day;
-			   day.push_back(date[8]);
-			   day.push_back(date[9]);
-			   int D = stoi(day);
-			   if (!(local_time->tm_mday <= D))
-				   return 0;
 
-			   if(timing!="notime" && local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
-			   return checkTimeWithlocalTime(timing);
 
-			   return 1;
+			   }
+			   else if ((1 + local_time->tm_mon > M)) {
+				   MessageBox::Show("month");
+				   return false;
+			   }
+			   else
+			   {
+				   if (local_time->tm_mday < D)
+					   return true;
+				   else if (local_time->tm_mday > D)
+				   {
+					   MessageBox::Show("day");
+					   return false;
+				   }
+				   else if(timing != "notime") {
+					   return checkTimeWithlocalTime(timing);
+				   }
+				   else {
+					   return 1;
+				   }
+
+			   }
+		   }
+	   
+				  
+
+			 
+			
+
+			  
 	   }
 
 	   bool checkTimeWithlocalTime(string timeing) {
@@ -444,18 +494,26 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 			   int H = stoi(Hour);
 
 			   if (local_time->tm_hour > H)
-				   return 0;
+			   {
+				  // MessageBox::Show("hour");
+				   return false;
+			   }
 			   else if (local_time->tm_hour < H)
-				   return 1;
+				   return true;
 
 			   string minute;
 			   minute.push_back(timeing[3]);
 			   minute.push_back(timeing[4]);
 			   int M = stoi(minute);
-			   if (!( local_time->tm_min <= M))
-				   return 0;
+			   if (!(local_time->tm_min <= M)) 
+			   {
+				  // MessageBox::Show("min");
+					   return false;
 
-			   return 1;
+
+			   }
+
+			   return true;
 		  
 	   }
 
@@ -498,7 +556,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Enter the boarding point,destination point and Date ");
 
 	}
-	else if (checkDate() == 0 || checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox4->Text), "notime") == 0  ){
+	else if (checkDate() == 0 || checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox4->Text), "notime") == false  ){
 		MessageBox::Show("Enter the Date correctly ");
 	}
 	else 
@@ -508,7 +566,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) )
 			{
 				
-				if (checkDateWithlocalDate(A.adminTrains[i].DateOfTravel , A.adminTrains[i].TimeOfTravel) == 1 ) {
+				if (checkDateWithlocalDate(A.adminTrains[i].DateOfTravel , A.adminTrains[i].TimeOfTravel) ==true) {
 					string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
 					listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
 					check = 1;
@@ -520,7 +578,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 	if (check == 0)
-		listBox1->Items->Add(" no trains available");
+		listBox1->Items->Add("no trains available");
 }
 
 private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -539,5 +597,6 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 
 	}
 }
+
 };
 }

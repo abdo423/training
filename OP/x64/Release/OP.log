@@ -1,15 +1,17 @@
 ﻿  MyForm.cpp
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(304,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(356,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(405,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(439,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\abdel\Desktop\training\OP\adminForm1h.h(656,21): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\abdel\Desktop\training\OP\adminForm1h.h(690,21): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(305,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(357,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(388,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(417,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(489,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\adminForm1h.h(657,21): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\adminForm1h.h(721,21): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   MyForm2.cpp
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(304,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(356,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(405,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\abdel\Desktop\training\OP\MyForm2.h(439,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(305,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(357,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(388,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(417,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\abdel\Desktop\training\OP\MyForm2.h(489,23): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Generating Code...
   admin.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 mysqlcppconn-static.lib(mysql_art_resultset.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_art_resultset.obj)' or at 'C:\Users\abdel\Desktop\training\OP\x64\Release\jdbc.pdb'; linking object as if no debug info

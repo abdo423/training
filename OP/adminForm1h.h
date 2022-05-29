@@ -649,6 +649,7 @@ namespace OP {
 		}
 
 
+
 		bool checkDateWithlocalDate(string date, string timing) {
 			//string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
 		   //0123-56-89
@@ -661,27 +662,57 @@ namespace OP {
 			Year.push_back(date[2]);
 			Year.push_back(date[3]);
 			int Y = stoi(Year);
-
-			if (!(1900 + local_time->tm_year <= Y))
-				return 0;
 			string month;
 			month.push_back(date[5]);
 			month.push_back(date[6]);
 			int M = stoi(month);
-			if (!( 1+local_time->tm_mon <= M))
-				return 0;
-
 			string day;
 			day.push_back(date[8]);
 			day.push_back(date[9]);
 			int D = stoi(day);
-			if (!(local_time->tm_mday <= D))
-				return 0;
+			if ((1900 + local_time->tm_year < Y))
+			{
+				return true;
 
-			if (  local_time->tm_mday == D && 1 + local_time->tm_mon == M && 1900 + local_time->tm_year == Y)
-				return checkTimeWithlocalTime(timing);
+			}
+			else if ((1900 + local_time->tm_year > Y))
+			{
 
-			return 1;
+				//MessageBox::Show("year");
+				return false;
+
+			}
+			else
+			{
+				if ((1 + local_time->tm_mon < M))
+				{
+
+					return true;
+
+
+
+				}
+				else if ((1 + local_time->tm_mon > M)) {
+					//MessageBox::Show("month");
+					return false;
+				}
+				else
+				{
+					if (local_time->tm_mday < D)
+						return true;
+					else if (local_time->tm_mday > D)
+					{
+						//MessageBox::Show("day");
+						return false;
+					}
+
+					else
+					{
+						return checkTimeWithlocalTime(timing);
+					}
+
+				}
+			}
 		}
 
 		bool checkTimeWithlocalTime(string timeing) {
@@ -695,21 +726,28 @@ namespace OP {
 			int H = stoi(Hour);
 
 			if (local_time->tm_hour > H)
-				return 0;
+			{
+				//MessageBox::Show("hour");
+				return false;
+			}
 			else if (local_time->tm_hour < H)
-				return 1;
+				return true;
 
 			string minute;
 			minute.push_back(timeing[3]);
 			minute.push_back(timeing[4]);
 			int M = stoi(minute);
 			if (!(local_time->tm_min <= M))
-				return 0;
+			{
+				//MessageBox::Show("min");
+				return false;
 
-			return 1;
+
+			}
+
+			return true;
 
 		}
-
 
 		bool checkDate() {
 			string date = msclr::interop::marshal_as<std::string>(textBox7->Text);
