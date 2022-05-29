@@ -14,10 +14,10 @@ public:
 	void loadTicket();
 	void storeTicket();
 	void delvector();
-	void updateTicket(string x, string y, string z, string l, string a);
+	void updateTicket(string x, string y, string z, string l, string number_of_train, string a, string id_user);
 	void deletDB();
 	//void addTicket(string x, string y, string z, string l,string number_of_train);
-	void addTicket(string x, string y, string z, string l, string number_of_train, string id);
+	void addTicket(string x, string y, string z, string l, string number_of_train, string id , string id_user);
 	vector<ticket> displayTicket();
 
 	

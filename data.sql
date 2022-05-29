@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: tsts
+-- Host: localhost    Database: tsts
 -- ------------------------------------------------------
--- Server version	8.0.29
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -71,7 +71,9 @@ DROP TABLE IF EXISTS `login`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
   `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL
+  `password` varchar(45) NOT NULL,
+  `id_passenger` int NOT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -81,7 +83,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('abdo@gmail.com','1234'),('1235','1235'),('5555','5555'),('7mdy','7mdy'),('khalid','khalid'),('admin','admin'),('admin','admin'),('54321','54321'),('',''),('ahmed','ahmed'),('tt','tt'),('1234','1234'),('123','132'),('12345','12345'),('159','159'),('147','147');
+INSERT INTO `login` VALUES ('1234','1234',1),('1235','1235',2),('8963','8963',3),('abdo','abdo',4);
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,6 +101,7 @@ CREATE TABLE `passenger` (
   `Date_of_travel` varchar(15) DEFAULT NULL,
   `number_of_train_booked` varchar(30) DEFAULT NULL,
   `id` int NOT NULL,
+  `id_user` int DEFAULT NULL,
   PRIMARY KEY (`passeneger_name`,`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -109,7 +112,7 @@ CREATE TABLE `passenger` (
 
 LOCK TABLES `passenger` WRITE;
 /*!40000 ALTER TABLE `passenger` DISABLE KEYS */;
-INSERT INTO `passenger` VALUES ('abdulla','Cairo','Giza','2022-05-29','12',2),('ghamry','Cairo','Giza','2022-05-29','12',6),('hamdy','Cairo','Giza','2022-05-29','12',4),('khaled','Cairo','Giza','2022-05-29','12',5),('mahdy','Cairo','Giza','2022-05-29','12',3),('nada','Cairo','Giza','2022-05-29','12',7),('nesren','Cairo','Giza','2022-05-29','12',8),('salma','Cairo','Giza','2022-05-29','12',9),('sayed','Cairo','Giza','2022-05-29','12',1);
+INSERT INTO `passenger` VALUES ('abdo','Cairo','Giza','2022-05-29','2434',7,2),('abod','Alexandria','Aswan','2022-05-29','2434',2,3),('abod','Alexandria','Aswan','2022-05-29','2434',3,4),('abod','Alexandria','Aswan','2022-05-29','2434',11,1),('khalid','Alexandria','Aswan','2022-05-29','2434',6,1),('taha','Alexandria','Aswan','2022-05-29','2434',4,4),('taha1','Alexandria','Aswan','2022-05-29','2434',5,4);
 /*!40000 ALTER TABLE `passenger` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +143,7 @@ CREATE TABLE `test_train` (
 
 LOCK TABLES `test_train` WRITE;
 /*!40000 ALTER TABLE `test_train` DISABLE KEYS */;
-INSERT INTO `test_train` VALUES ('abdalla',12,'Cairo','Giza',38,250,'2022-05-29','02:15',38),('mostafa',22,'Giza','Cairo',5,260,'2000-01-01','00:12',4),('Hamdy',55,'Cairo','Giza',2,250,'2022-01-01','00:00',0),('samir',865,'Cairo','Giza',10,100,'2022-05-29','01:15',10),('Bondok',2434,'Faiyum','Luxor',1000,100,'2022-05-27','02:25',0);
+INSERT INTO `test_train` VALUES ('abdalla',12,'Cairo','Giza',50,250,'2022-05-29','06:15',38),('mostafa',22,'Giza','Cairo',5,260,'2000-01-01','00:12',4),('Hamdy',55,'Cairo','Giza',2,250,'2022-01-01','00:00',0),('samir',865,'Cairo','Giza',10,100,'2022-05-29','01:15',10),('Bondok',2434,'Alexandria','Aswan',1000,100,'2022-05-29','20:25',8);
 /*!40000 ALTER TABLE `test_train` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,4 +185,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-29  2:44:14
+-- Dump completed on 2022-05-29  4:35:43

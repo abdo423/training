@@ -2,9 +2,9 @@
 #include "adminForm1h.h"
 #include "MyForm1.h"
 #include <msclr/marshal_cppstd.h>
+//#include"loginn.h"
 
-
-
+static loginn U;
 namespace OP {
 
 	using namespace System;
@@ -23,7 +23,9 @@ namespace OP {
 	public:
 		MyForm(void)
 		{
+
 			InitializeComponent();
+			U.loadusers();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -256,10 +258,12 @@ namespace OP {
 
 	private: System::Void Reg_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();
-		MyForm1^ x = gcnew MyForm1();
-		x->ShowDialog();
+		MyForm1^ xx = gcnew MyForm1();
+		xx->ShowDialog();
 		textBox_username->Clear();
 		textBox_password->Clear();
+		U.delvector();
+		U.loadusers();
 		this->Show();
 	}
 
@@ -293,19 +297,27 @@ namespace OP {
 
 		else
 		{
-			bool p;
-			test x;
-			p = x.login(g, q);
+			bool p = false;
+			int pp;
+			for (int i = 0; i < U.user.size(); i++)
+			{
+				if (U.user[i].email == g && U.user[i].password == q)
+				{
+					p = true;
+					pp = i;
+				}
+			}
+			 
 			if (p)
 			{
 				this->Hide();
-				MyForm2^ h = gcnew MyForm2();
+				MyForm2^ h = gcnew MyForm2(U.user[pp].id_passenger);
 				h->ShowDialog();
 				textBox_username->Clear();
 				textBox_password->Clear();
 				this->Show();
 
-
+			
 			}
 			else
 			{
@@ -313,23 +325,23 @@ namespace OP {
 			}
 		}
 	}
-	private: System::Void textBox_username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->ActiveControl = textBox_username;
-		String^ folderPath = Application::StartupPath;
-		folderPath += "\\images\\";
-		String^ fileName = "clock.jpg";
-		pictureBox1->Image = Image::FromFile(folderPath + fileName);
+private: System::Void textBox_username_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	this->ActiveControl = textBox_username;
+	String^ folderPath = Application::StartupPath;
+	folderPath += "\\images\\";
+	String^ fileName = "clock.jpg";
+	pictureBox1->Image = Image::FromFile(folderPath + fileName);
 
-	}
-	private: System::Void textBox_username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Enter)
-			textBox_password->Select();
-	}
-	private: System::Void textBox_password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Enter)
-			Sign->PerformClick();
-	}
-	};
+}
+private: System::Void textBox_username_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		textBox_password->Select();
+}
+private: System::Void textBox_password_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Enter)
+		Sign->PerformClick();
+}
+};
 }

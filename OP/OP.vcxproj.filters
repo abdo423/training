@@ -42,6 +42,12 @@
     <ClCompile Include="MyForm2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="loginn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="users.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -69,6 +75,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MyForm2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="loginn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="users.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

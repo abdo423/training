@@ -51,7 +51,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="admin.cpp" />
+    <ClCompile Include="loginn.cpp" />
     <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="passeneger.cpp" />
     <ClCompile Include="ticket.cpp" />
@@ -135,9 +136,11 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="users.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admin.h" />
+    <ClInclude Include="loginn.h" />
     <ClInclude Include="MyForm2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -154,6 +157,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="test.h" />
+    <ClInclude Include="users.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="adminForm1h.resx">

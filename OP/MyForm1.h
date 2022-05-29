@@ -2,7 +2,9 @@
 #pragma once
 #include "test.h"
 #include <msclr/marshal_cppstd.h>
-	
+#include"loginn.h"
+
+static loginn x;
 	namespace OP {
 
 		using namespace System;
@@ -21,6 +23,7 @@
 		MyForm1(void)
 		{
 			InitializeComponent();
+			x.loadusers();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -243,10 +246,17 @@
 	
 private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	test obj;
+	
 	string email = msclr::interop::marshal_as<std::string>(textBox_username->Text);
 	string pass = msclr::interop::marshal_as<std::string>(textBox_password->Text);
-	obj.email_insert(email, pass);
+	if (x.compare(email) == 1 || email == "admin" ) {
+		MessageBox::Show("this email is exist ,  please change this email :) . ");
+		return;
+	}
+	x.email_insert(email, pass);
+	x.deletDB();
+	x.insertDB();
+	x.delvector();
 	Form::Close();
 	
 }
