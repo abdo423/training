@@ -372,7 +372,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else
 	{
-		if (msclr::interop::marshal_as<std::string>(listBox1->Text) == "" || "no trains available") {
+		if (msclr::interop::marshal_as<std::string>(listBox1->Text) == " " || "no trains available") {
 			MessageBox::Show("please select train first");
 			return;
 		}
