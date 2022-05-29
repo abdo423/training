@@ -7,7 +7,7 @@
 using namespace std;
 static passeneger p;
 static admin A = admin();
-
+static string id_Us;
 namespace OP {
 
 	using namespace System;
@@ -23,8 +23,9 @@ namespace OP {
 	public ref class MyForm2 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm2(void)
+		MyForm2(string id_user)
 		{
+			id_Us = id_user;
 			InitializeComponent();
 			loadCities();
 			p.loadTicket();
@@ -285,6 +286,7 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm2";
 			this->Text = L"update";
+			this->Load += gcnew System::EventHandler(this, &MyForm2::MyForm2_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -312,7 +314,7 @@ namespace OP {
 				counter++;
 			}
 
-			else if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text))
+			else if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text) && p.tickets[i].id_user == id_Us)
 			{
 				vector <ticket> t = p.displayTicket();
 				textBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].passeneger_name);
@@ -330,13 +332,13 @@ namespace OP {
 		}
 
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (textBox5->Text == "")
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (textBox5->Text == "")
 		{
 			MessageBox::Show("you have to view data first");
 			textBox1->Clear();
-			comboBox1->Text="";
-			comboBox2->Text="";
+			comboBox1->Text = "";
+			comboBox2->Text = "";
 			textBox4->Clear();
 			return;
 
@@ -346,11 +348,35 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			MessageBox::Show("please fill in all data fields");
 			return;
 		}
-
-
-		p.updateTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), msclr::interop::marshal_as<std::string>(textBox5->Text));
-		MessageBox::Show("updated successfully");
-}
+		else if ((listBox1->Text) == "" || msclr::interop::marshal_as<std::string>(listBox1->Text) == "no trains available") {
+			MessageBox::Show("please select train first");
+			return;
+		}
+		else if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+			MessageBox::Show("the train is full");
+			return;
+		}
+		int check = -1;
+		for (int i = 0; i < p.tickets.size(); i++) {
+			if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text)) {
+				check = i;
+				break;
+			}
+		}
+		if (check != -1 ) {
+			for (int i = 0; i < A.adminTrains.size(); i++) {
+				if (A.adminTrains[i].train_number == p.tickets[check].number_of_train) {
+					A.adminTrains[i].no_people--;
+					break;
+				}
+			}
+			p.updateTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, msclr::interop::marshal_as<std::string>(textBox5->Text), id_Us);
+			A.adminTrains[bookedTrain].no_people++;
+			MessageBox::Show("updated successfully");
+		}else {
+			MessageBox::Show("this name is not exist in data base .");
+		}
+	}
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -358,42 +384,31 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	int counter = 0;
 	for (int i = 0; i < p.tickets.size(); i++)
 	{
-		if (p.tickets[i].passeneger_name != msclr::interop::marshal_as<std::string>(textBox1->Text))
+		if (p.tickets[i].passeneger_name == msclr::interop::marshal_as<std::string>(textBox1->Text)&& p.tickets[i].id_user== id_Us )
 		{
-			counter++;
-
-		}
-
-
-	}
-	if (counter < count)
-	{
-		MessageBox::Show("data already exists");
-	}
-	else
-	{
-		if (msclr::interop::marshal_as<std::string>(listBox1->Text) == "" || "no trains available") {
-			MessageBox::Show("please select train first");
+			MessageBox::Show("data already exists");
 			return;
 		}
+	}
+	if (msclr::interop::marshal_as<std::string>(listBox1->Text) == "" || msclr::interop::marshal_as<std::string>(listBox1->Text) == "no trains available") {
+		MessageBox::Show("please select train first");
+		return;
+	}
 	else
-		{
-			if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
-				MessageBox::Show("the train is full");
-				return;
-			}
-		
-			else
-			{
-				int	ids = p.tickets.size() + 1;
-				p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, to_string(ids));
-				MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " your tikcet id is:  " + ids + "  have a nice trip");
-				A.adminTrains[bookedTrain].no_people++;
-				listBox1->Items->Clear();
-			}
-		   
+	{
+		if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+			MessageBox::Show("the train is full");
+			return;
 		}
 		
+		else
+		{
+			int	ids = p.tickets.size() + 1;
+			p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, to_string(ids) , id_Us);
+			MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " your tikcet id is:  " + ids + "  have a nice trip");
+			A.adminTrains[bookedTrain].no_people++;
+			listBox1->Items->Clear();
+		}
 	}
 }
 
@@ -598,5 +613,7 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 	}
 }
 
+private: System::Void MyForm2_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
