@@ -2,6 +2,7 @@
 #include"test.h"
 #include<vector>
 #include"trains.h"
+#include<ctime>
  class admin
 {
 	 test obj;
@@ -15,6 +16,8 @@ public:
 	void deletDB();
 	void insertDB();
 	void delvector();
+	bool checkDateWithlocalDate(string date, string timing);
+	bool checkTimeWithlocalTime(string timeing);
  };
 
 

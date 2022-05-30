@@ -28,8 +28,10 @@ namespace OP {
 			id_Us = id_user;
 			InitializeComponent();
 			loadCities();
-			p.loadTicket();
 			A.loadTrains();
+			p.loadTicket();
+			
+			textBox4->Text = "2022-01-01";
 			//
 			//TODO: Add the constructor code here
 			//
@@ -286,7 +288,6 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm2";
 			this->Text = L"update";
-			this->Load += gcnew System::EventHandler(this, &MyForm2::MyForm2_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -304,34 +305,31 @@ namespace OP {
 		}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		int count = p.tickets.size();
 		int counter = 0;
 		for (int i = 0; i < p.tickets.size(); i++)
 		{
-			if (p.tickets[i].id != msclr::interop::marshal_as<std::string>(textBox5->Text))
-
-			{
-				counter++;
-			}
-
-			else if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text) && p.tickets[i].id_user == id_Us)
+			if (p.tickets[i].get_id() == msclr::interop::marshal_as<std::string>(textBox5->Text) && p.tickets[i].get_id_user() == id_Us)
 			{
 				vector <ticket> t = p.displayTicket();
-				textBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].passeneger_name);
-				comboBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].boarding_point);
-				comboBox2->Text = msclr::interop::marshal_as<System::String^>(t[i].destination_point);
-				textBox4->Text = msclr::interop::marshal_as<System::String^>(t[i].date_of_travel);
+				textBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].get_passeneger_name());
+				comboBox1->Text = msclr::interop::marshal_as<System::String^>(t[i].get_boarding_point());
+				comboBox2->Text = msclr::interop::marshal_as<System::String^>(t[i].get_destination_point());
+				textBox4->Text = msclr::interop::marshal_as<System::String^>(t[i].get_date_of_travel());
 				MessageBox::Show("Data has been viewed");
-
+				counter = 1;
+				break;
 			}
 		}
 
-		if (counter == count)
+		if (counter == 0)
 		{
-			MessageBox::Show("Data not found");
+			MessageBox::Show("Data not found");  
 		}
 
 	}
+
+
+		   
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (textBox5->Text == "")
 		{
@@ -352,26 +350,29 @@ namespace OP {
 			MessageBox::Show("please select train first");
 			return;
 		}
-		else if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+		else if ((A.adminTrains[bookedTrain].get_no_people() >= A.adminTrains[bookedTrain].get_no_seats())) {
 			MessageBox::Show("the train is full");
 			return;
 		}
 		int check = -1;
 		for (int i = 0; i < p.tickets.size(); i++) {
-			if (p.tickets[i].id == msclr::interop::marshal_as<std::string>(textBox5->Text)) {
+			if (p.tickets[i].get_id() == msclr::interop::marshal_as<std::string>(textBox5->Text)) {
 				check = i;
 				break;
 			}
 		}
 		if (check != -1 ) {
 			for (int i = 0; i < A.adminTrains.size(); i++) {
-				if (A.adminTrains[i].train_number == p.tickets[check].number_of_train) {
-					A.adminTrains[i].no_people--;
+				if (A.adminTrains[i].get_train_number() == p.tickets[check].get_number_of_train()) {
+					int kk = A.adminTrains[i].get_no_people();
+					kk--;
+					A.adminTrains[i].set_no_people(kk);
 					break;
 				}
 			}
-			p.updateTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, msclr::interop::marshal_as<std::string>(textBox5->Text), id_Us);
-			A.adminTrains[bookedTrain].no_people++;
+			p.updateTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].get_train_number(), msclr::interop::marshal_as<std::string>(textBox5->Text), id_Us);
+			int brrr = A.adminTrains[bookedTrain].get_no_people() + 1;
+			A.adminTrains[bookedTrain].set_no_people(brrr);
 			MessageBox::Show("updated successfully");
 		}else {
 			MessageBox::Show("this name is not exist in data base .");
@@ -382,9 +383,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	for (int i = 0; i < p.tickets.size(); i++)
 	{
-		if (p.tickets[i].passeneger_name == msclr::interop::marshal_as<std::string>(textBox1->Text) && p.tickets[i].id_user == id_Us)
+		if (p.tickets[i].get_passeneger_name() == msclr::interop::marshal_as<std::string>(textBox1->Text) &&  p.tickets[i].get_id_user() == id_Us && p.tickets[i].get_number_of_train() == A.adminTrains[bookedTrain].get_train_number())
 		{
-			MessageBox::Show("data already exists");
+			MessageBox::Show("you cant Reservation on same train with same name .");
 			return;
 		}
 	}
@@ -394,21 +395,28 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else
 	{
-		if ((A.adminTrains[bookedTrain].no_people >= A.adminTrains[bookedTrain].no_seats)) {
+		if ((A.adminTrains[bookedTrain].get_no_people() >= A.adminTrains[bookedTrain].get_no_seats())) {
 			MessageBox::Show("the train is full");
 			return;
 		}
-
+		
 		else
 		{
-			int    ids = p.tickets.size() + 1;
-			p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].train_number, to_string(ids), id_Us);
-			MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].train_number) + " your tikcet id is:  " + ids + "  have a nice trip");
-			A.adminTrains[bookedTrain].no_people++;
+			    
+			int	ids = p.tickets.size() + 1;
+			while (p.checkId(to_string(ids))) {
+				ids++;
+			}
+
+			p.addTicket(msclr::interop::marshal_as<std::string>(textBox1->Text), msclr::interop::marshal_as<std::string>(comboBox1->Text), msclr::interop::marshal_as<std::string>(comboBox2->Text), msclr::interop::marshal_as<std::string>(textBox4->Text), A.adminTrains[bookedTrain].get_train_number(), to_string(ids) , id_Us);
+			MessageBox::Show("you booked train " + msclr::interop::marshal_as<System::String^>(A.adminTrains[bookedTrain].get_train_number()) + " your tikcet id is:  " + ids + "  have a nice trip");
+			int brrr = A.adminTrains[bookedTrain].get_no_people() + 1;
+			A.adminTrains[bookedTrain].set_no_people(brrr);
 			listBox1->Items->Clear();
 		}
 	}
 }
+	   
 
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	p.deletDB();
@@ -418,12 +426,10 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	A.insertDB();
 	A.delvector();
 	this->Close();
-	
-	
 }
 
 
-	   bool checkDateWithlocalDate(string date, string timing) {
+	  /* bool checkDateWithlocalDate(string date, string timing) {
 		   //string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
 		  //0123-56-89
 		   time_t ttime = time(0);
@@ -494,41 +500,41 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 			
 
 			  
-	   }
+	   }*/
 
-	   bool checkTimeWithlocalTime(string timeing) {
+	   /*bool checkTimeWithlocalTime(string timeing) {
 
 		   time_t ttime = time(0);
 		   tm* local_time = localtime(&ttime);
 
-			   string Hour;
-			   Hour.push_back(timeing[0]);
-			   Hour.push_back(timeing[1]);
-			   int H = stoi(Hour);
+			string Hour;
+			Hour.push_back(timeing[0]);
+			Hour.push_back(timeing[1]);
+			int H = stoi(Hour);
 
-			   if (local_time->tm_hour > H)
-			   {
-				  // MessageBox::Show("hour");
-				   return false;
-			   }
-			   else if (local_time->tm_hour < H)
-				   return true;
+			if (local_time->tm_hour > H)
+			{
+				// MessageBox::Show("hour");
+				return false;
+			}
+			else if (local_time->tm_hour < H)
+				return true;
 
-			   string minute;
-			   minute.push_back(timeing[3]);
-			   minute.push_back(timeing[4]);
-			   int M = stoi(minute);
-			   if (!(local_time->tm_min <= M)) 
-			   {
-				  // MessageBox::Show("min");
-					   return false;
+			string minute;
+			minute.push_back(timeing[3]);
+			minute.push_back(timeing[4]);
+			int M = stoi(minute);
+			if (!(local_time->tm_min <= M)) 
+			{
+				// MessageBox::Show("min");
+					return false;
 
 
-			   }
+			}
 
-			   return true;
+			return true;
 		  
-	   }
+	   }*/
 
 	   bool checkDate() {
 		   string date = msclr::interop::marshal_as<std::string>(textBox4->Text);
@@ -569,18 +575,18 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Enter the boarding point,destination point and Date ");
 
 	}
-	else if (checkDate() == 0 || checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox4->Text), "notime") == false  ){
+	else if (checkDate() == 0 || A.checkDateWithlocalDate(msclr::interop::marshal_as<std::string>(textBox4->Text), "notime") == false  ){
 		MessageBox::Show("Enter the Date correctly ");
 	}
 	else 
 	{
 		for (int i = 0; i < A.adminTrains.size(); i++)
 		{
-			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point)) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point)) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel)) )
+			if ((comboBox1->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_boarding_point())) && (comboBox2->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_destination_point())) && (textBox4->Text == msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_DateOfTravel())) )
 			{
 				
-				if (checkDateWithlocalDate(A.adminTrains[i].DateOfTravel , A.adminTrains[i].TimeOfTravel) ==true) {
-					string s = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
+				if (A.checkDateWithlocalDate(A.adminTrains[i].get_DateOfTravel() , A.adminTrains[i].get_TimeOfTravel()) ==true) {
+					string s = A.adminTrains[i].get_train_name() + "  " + A.adminTrains[i].get_train_number() + "  " + A.adminTrains[i].get_boarding_point() + "  " + A.adminTrains[i].get_destination_point() + "  " + to_string(A.adminTrains[i].get_ticket_price()) + "  " + A.adminTrains[i].get_DateOfTravel() + "  " + A.adminTrains[i].get_TimeOfTravel();
 					listBox1->Items->Add(msclr::interop::marshal_as<System::String^>(s));
 					check = 1;
 					comboBox1->Text = "";
@@ -599,19 +605,15 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 	
 	for (int i = 0; i < A.adminTrains.size(); i++) 
 	{
-		string index = A.adminTrains[i].train_name + "  " + A.adminTrains[i].train_number + "  " + A.adminTrains[i].boarding_point + "  " + A.adminTrains[i].destination_point + "  " + to_string(A.adminTrains[i].ticket_price) + "  " + A.adminTrains[i].DateOfTravel + "  " + A.adminTrains[i].TimeOfTravel;
+		string index = A.adminTrains[i].get_train_name() + "  " + A.adminTrains[i].get_train_number() + "  " + A.adminTrains[i].get_boarding_point() + "  " + A.adminTrains[i].get_destination_point() + "  " + to_string(A.adminTrains[i].get_ticket_price()) + "  " + A.adminTrains[i].get_DateOfTravel() + "  " + A.adminTrains[i].get_TimeOfTravel();
 
 		if (index == s) {
-			comboBox1->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].boarding_point);
-			comboBox2->Text= msclr::interop::marshal_as<System::String^>(A.adminTrains[i].destination_point);
-			textBox4->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].DateOfTravel);
+			comboBox1->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_boarding_point());
+			comboBox2->Text= msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_destination_point());
+			textBox4->Text = msclr::interop::marshal_as<System::String^>(A.adminTrains[i].get_DateOfTravel());
 			bookedTrain = i;
 		}
-
 	}
-}
-
-private: System::Void MyForm2_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

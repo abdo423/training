@@ -199,9 +199,9 @@ namespace OP {
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(46, 160);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(102, 24);
+			this->label2->Size = System::Drawing::Size(58, 24);
 			this->label2->TabIndex = 6;
-			this->label2->Text = L"Username";
+			this->label2->Text = L"Email";
 			// 
 			// label1
 			// 
@@ -266,7 +266,7 @@ namespace OP {
 		U.loadusers();
 		this->Show();
 	}
-
+		   
 	private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		String^ User = this->textBox_username->Text;
@@ -297,21 +297,20 @@ namespace OP {
 
 		else
 		{
-			bool p = false;
-			int pp;
+			int pp = -1 ; 
 			for (int i = 0; i < U.user.size(); i++)
 			{
-				if (U.user[i].email == g && U.user[i].password == q)
+				if (U.user[i].get_email() == g && U.user[i].get_password() == q)
 				{
-					p = true;
 					pp = i;
+					break;
 				}
 			}
 			 
-			if (p)
+			if (pp != -1 )
 			{
 				this->Hide();
-				MyForm2^ h = gcnew MyForm2(U.user[pp].id_passenger);
+				MyForm2^ h = gcnew MyForm2(U.user[pp].get_id_passenger());
 				h->ShowDialog();
 				textBox_username->Clear();
 				textBox_password->Clear();

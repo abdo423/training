@@ -3,14 +3,15 @@
 
 void admin::loadTrains()
 {
-
 	ResultSet* result;
 	result = obj.dbGet("select *from test_train");
 	while (result->next())
 	{
-		int  people = stoi(result->getString(9));
-		trains t = trains(result->getString(1), result->getString(2), result->getString(3), result->getString(4), result->getString(5), result->getString(6), result->getString(7), result->getString(8), people ) ;
-		adminTrains.push_back(t);
+		if (checkDateWithlocalDate(result->getString(7), result->getString(8)) == true ) {
+			int  people = stoi(result->getString(9));
+			trains t = trains(result->getString(1), result->getString(2), result->getString(3), result->getString(4), result->getString(5), result->getString(6), result->getString(7), result->getString(8), people);
+			adminTrains.push_back(t);
+		}
 	}
 }
 
@@ -20,7 +21,7 @@ bool admin::checkingForNo_Train(string s) {
 
 	for (int i = 0; i < adminTrains.size(); i++)
 	{
-		if (adminTrains[i].train_number == s)
+		if (adminTrains[i].get_train_number() == s)
 		{
 			check = true;
 			break;
@@ -45,8 +46,8 @@ int admin::deletRow(string del)
 	int people; 
 	for (int i = 0; i < adminTrains.size(); i++)
 	{
-		if (adminTrains[i].train_number == del) {
-			people = adminTrains[i].no_people;
+		if (adminTrains[i].get_train_number() == del) {
+			people = adminTrains[i].get_no_people();
 			adminTrains.erase(adminTrains.begin() + i);
 			break;
 		}
@@ -62,9 +63,90 @@ void admin::deletDB() {
 
 void admin::insertDB() {
 	for (int i = 0; i < adminTrains.size(); i++)
-		obj.dbSet("INSERT INTO `tsts`.`test_train` VALUES('" + adminTrains[i].train_name + "','" + adminTrains[i].train_number + "','" + adminTrains[i].boarding_point + "','" + adminTrains[i].destination_point + "','" + to_string( adminTrains[i].no_seats) + "','" + to_string(adminTrains[i].ticket_price) + "','"+adminTrains[i].DateOfTravel+"','" + adminTrains[i].TimeOfTravel + "','" + to_string(adminTrains[i].no_people) + "')");
+		obj.dbSet("INSERT INTO `tsts`.`test_train` VALUES('" + adminTrains[i].get_train_name() + "','" + adminTrains[i].get_train_number() + "','" + adminTrains[i].get_boarding_point() + "','" + adminTrains[i].get_destination_point() + "','" + to_string( adminTrains[i].get_no_seats()) + "','" + to_string(adminTrains[i].get_ticket_price()) + "','"+adminTrains[i].get_DateOfTravel()+"','" + adminTrains[i].get_TimeOfTravel() + "','" + to_string(adminTrains[i].get_no_people()) + "')");
 }
 void admin::delvector()
 {
 	adminTrains.clear();
+}
+bool admin::checkDateWithlocalDate(string date, string timing) {
+	time_t ttime = time(0);
+	tm* local_time = localtime(&ttime);
+
+	string Year;
+	Year.push_back(date[0]);
+	Year.push_back(date[1]);
+	Year.push_back(date[2]);
+	Year.push_back(date[3]);
+	int Y = stoi(Year);
+	string month;
+	month.push_back(date[5]);
+	month.push_back(date[6]);
+	int M = stoi(month);
+	string day;
+	day.push_back(date[8]);
+	day.push_back(date[9]);
+	int D = stoi(day);
+	if ((1900 + local_time->tm_year < Y))
+	{
+		return true;
+	}
+	else if ((1900 + local_time->tm_year > Y))
+	{
+		return false;
+	}
+	else
+	{
+		if ((1 + local_time->tm_mon < M))
+		{
+			return true;
+		}
+		else if ((1 + local_time->tm_mon > M)) {
+			return false;
+		}
+		else
+		{
+			if (local_time->tm_mday < D)
+				return true;
+			else if (local_time->tm_mday > D)
+			{
+				//MessageBox::Show("day");
+				return false;
+			}
+			else if (timing != "notime") {
+				return checkTimeWithlocalTime(timing);
+			}
+			else {
+				return 1;
+			}
+		}
+	}
+}
+
+bool admin::checkTimeWithlocalTime(string timeing) {
+
+	time_t ttime = time(0);
+	tm* local_time = localtime(&ttime);
+
+	string Hour;
+	Hour.push_back(timeing[0]);
+	Hour.push_back(timeing[1]);
+	int H = stoi(Hour);
+
+	if (local_time->tm_hour > H)
+	{
+		return false;
+	}
+	else if (local_time->tm_hour < H)
+		return true;
+
+	string minute;
+	minute.push_back(timeing[3]);
+	minute.push_back(timeing[4]);
+	int M = stoi(minute);
+	if (!(local_time->tm_min <= M))
+	{
+		return false;
+	}
+	return true;
 }

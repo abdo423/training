@@ -23,7 +23,7 @@ bool loginn::compare(string email)
 {
 	for(int i=0 ;i < user.size() ; i++)
 	{
-		if (user[i].email == email )
+		if (user[i].get_email() == email )
 		{
 			return true;
 		}
@@ -37,7 +37,7 @@ void loginn::deletDB() {
 
 void loginn::insertDB() {
 	for (int i = 0; i < user.size(); i++)
-		obj.dbSet("INSERT INTO `tsts`.`login` VALUES('" + user[i].email + "','" + user[i].password + "','" + user[i].id_passenger + "')");
+		obj.dbSet("INSERT INTO `tsts`.`login` VALUES('" + user[i].get_email() + "','" + user[i].get_password() + "','" + user[i].get_id_passenger() + "')");
 }
 void loginn::delvector()
 {

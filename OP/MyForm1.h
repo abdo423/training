@@ -163,7 +163,7 @@ static loginn x;
 			this->textBox_username->ForeColor = System::Drawing::Color::White;
 			this->textBox_username->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->textBox_username->Location = System::Drawing::Point(48, 219);
-			this->textBox_username->MaxLength = 15;
+			this->textBox_username->MaxLength = 30;
 			this->textBox_username->Name = L"textBox_username";
 			this->textBox_username->Size = System::Drawing::Size(343, 29);
 			this->textBox_username->TabIndex = 17;
@@ -176,7 +176,7 @@ static loginn x;
 			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Location = System::Drawing::Point(43, 284);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(90, 23);
+			this->label3->Size = System::Drawing::Size(95, 24);
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"Password";
 			// 
@@ -188,7 +188,7 @@ static loginn x;
 			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Location = System::Drawing::Point(43, 183);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(57, 23);
+			this->label2->Size = System::Drawing::Size(58, 24);
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"Email";
 			// 
@@ -253,6 +253,17 @@ private: System::Void Sign_Click(System::Object^ sender, System::EventArgs^ e) {
 		MessageBox::Show("this email is exist ,  please change this email :) . ");
 		return;
 	}
+
+	if (email.size() < 11) {
+		MessageBox::Show("this email is too short :) . ");
+		return;
+	}
+	string emm = email.substr(email.size()-10 , email.size());
+	if (emm != "@gmail.com") {
+		MessageBox::Show("this email is wrong , please enter '@gmail.com' in end of email (: . ");
+		return;
+	}
+	
 	x.email_insert(email, pass);
 	x.deletDB();
 	x.insertDB();
