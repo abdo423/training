@@ -288,6 +288,7 @@ namespace OP {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm2";
 			this->Text = L"update";
+			this->Load += gcnew System::EventHandler(this, &MyForm2::MyForm2_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -614,6 +615,13 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 			bookedTrain = i;
 		}
 	}
+}
+private: System::Void MyForm2_Load(System::Object^ sender, System::EventArgs^ e) {
+	String^ folderPath = Application::StartupPath;
+	folderPath += "\\images\\";
+	String^ fileName = "add.png";
+	fileName = "form2.jpg";
+	BackgroundImage = Image::FromFile(folderPath + fileName);
 }
 };
 }
